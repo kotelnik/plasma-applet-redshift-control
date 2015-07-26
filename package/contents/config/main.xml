@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+    <kcfgfile name=""/>
+
+    <group name="General">
+        <entry name="autostart" type="Bool">
+            <default>true</default>
+        </entry>
+    </group>
+    
+    <group name="Advanced">
+        <entry name="latitude" type="Double">
+            <default>50.0</default>
+        </entry>
+        <entry name="longitude" type="Double">
+            <default>7.0</default>
+        </entry>
+        
+        <entry name="dayTemperature" type="Int">
+            <default>6500</default>
+        </entry>
+        <entry name="nightTemperature" type="Int">
+            <default>4000</default>
+        </entry>
+    </group>
+    
+</kcfg>
