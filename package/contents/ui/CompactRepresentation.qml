@@ -32,6 +32,8 @@ Item {
     
     property double fontPointSize: itemWidth * 0.65
     property int temperatureIncrement: 500
+    property int temperatureMin: 1000
+    property int temperatureMax: 25000
     
     Label {
         id: bulbIcon
@@ -77,9 +79,15 @@ Item {
             if (wheel.angleDelta.y > 0) {
                 // wheel up
                 manualTemperature += temperatureIncrement
+                if (manualTemperature > temperatureMax) {
+                    manualTemperature = temperatureMax
+                }
             } else {
                 // wheel down
                 manualTemperature -= temperatureIncrement
+                if (manualTemperature < temperatureMin) {
+                    manualTemperature = temperatureMin
+                }
             }
             redshiftDS.connectedSources.push(redshiftOneTimeCommand)
         }
