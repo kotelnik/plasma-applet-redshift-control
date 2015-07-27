@@ -9,6 +9,9 @@
         <entry name="autostart" type="Bool">
             <default>true</default>
         </entry>
+        <entry name="smoothTransitions" type="Bool">
+            <default>false</default>
+        </entry>
     </group>
     
     <group name="Advanced">
@@ -24,6 +27,23 @@
         </entry>
         <entry name="nightTemperature" type="Int">
             <default>4000</default>
+        </entry>
+        
+        <entry name="dayBrightness" type="Double">
+            <default>1</default>
+        </entry>
+        <entry name="nightBrightness" type="Double">
+            <default>1</default>
+        </entry>
+        
+        <entry name="gammaR" type="Double">
+            <default>1</default>
+        </entry>
+        <entry name="gammaG" type="Double">
+            <default>1</default>
+        </entry>
+        <entry name="gammaB" type="Double">
+            <default>1</default>
         </entry>
     </group>
     

@@ -6,6 +6,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 Item {
     
     property alias cfg_autostart: autostart.checked
+    property alias cfg_smoothTransitions: smoothTransitions.checked
 
     GridLayout {
         Layout.fillWidth: true
@@ -14,6 +15,11 @@ Item {
         CheckBox {
             id: autostart
             text: i18n('Autostart')
+        }
+        
+        CheckBox {
+            id: smoothTransitions
+            text: i18n('Smooth transitions')
         }
     }
     

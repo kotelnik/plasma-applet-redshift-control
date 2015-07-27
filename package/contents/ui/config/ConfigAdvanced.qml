@@ -11,6 +11,11 @@ Item {
     property alias cfg_longitude: longitude.value
     property alias cfg_dayTemperature: dayTemperature.value
     property alias cfg_nightTemperature: nightTemperature.value
+    property alias cfg_dayBrightness: dayBrightness.value
+    property alias cfg_nightBrightness: nightBrightness.value
+    property alias cfg_gammaR: gammaR.value
+    property alias cfg_gammaG: gammaG.value
+    property alias cfg_gammaB: gammaB.value
     
     PlasmaCore.DataSource {
         id: geolocationDS
@@ -31,6 +36,11 @@ Item {
         Layout.fillWidth: true
         columns: 3
         
+        Label {
+            text: i18n("Location")
+            Layout.columnSpan: 3
+            font.bold: true
+        }
         Label {
             text: i18n('Latitude:')
             Layout.alignment: Qt.AlignRight
@@ -76,7 +86,12 @@ Item {
         }
         
         Label {
-            text: i18n("Day temperature:")
+            text: i18n("Temperature")
+            Layout.columnSpan: 3
+            font.bold: true
+        }
+        Label {
+            text: i18n("Day:")
             Layout.alignment: Qt.AlignRight
         }
         SpinBox {
@@ -89,7 +104,7 @@ Item {
         }
         
         Label {
-            text: i18n("Night temperature:")
+            text: i18n("Night:")
             Layout.alignment: Qt.AlignRight
         }
         SpinBox {
@@ -99,6 +114,83 @@ Item {
             minimumValue: 1000
             maximumValue: 25000
             Layout.columnSpan: 2
+        }
+        
+        
+        Item {
+            width: 2
+            height: 10
+            Layout.columnSpan: 3
+        }
+        
+        Label {
+            text: i18n("Brightness")
+            Layout.columnSpan: 3
+            font.bold: true
+        }
+        Label {
+            text: i18n("Day:")
+            Layout.alignment: Qt.AlignRight
+        }
+        SpinBox {
+            id: dayBrightness
+            decimals: 2
+            stepSize: 0.1
+            minimumValue: 0.1
+            maximumValue: 1
+            Layout.columnSpan: 2
+        }
+        Label {
+            text: i18n("Night:")
+            Layout.alignment: Qt.AlignRight
+        }
+        SpinBox {
+            id: nightBrightness
+            decimals: 2
+            stepSize: 0.1
+            minimumValue: 0.1
+            maximumValue: 1
+            Layout.columnSpan: 2
+        }
+        
+        Item {
+            width: 2
+            height: 10
+            Layout.columnSpan: 3
+        }
+        Label {
+            text: i18n("Gamma")
+            Layout.columnSpan: 3
+            font.bold: true
+        }
+        Label {
+            text: i18n("RGB:")
+            Layout.alignment: Qt.AlignRight
+        }
+        RowLayout {
+            Layout.columnSpan: 2
+            
+            SpinBox { 
+                id:"gammaR"
+                decimals: 2
+                minimumValue: 0.1
+                maximumValue: 10
+                stepSize: 0.1
+            }
+            SpinBox { 
+                id:"gammaG"
+                decimals: 2
+                minimumValue: 0.1
+                maximumValue: 10
+                stepSize: 0.1
+            }
+            SpinBox {
+                id:"gammaB"
+                decimals: 2
+                minimumValue: 0.1
+                maximumValue: 10
+                stepSize: 0.1
+            }
         }
 
     }

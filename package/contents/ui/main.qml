@@ -31,17 +31,25 @@ Item {
     property bool active: false
     property bool startAfterStop: false
     
+    property bool autostart: plasmoid.configuration.autostart
+    property bool smoothTransitions: plasmoid.configuration.smoothTransitions
+    
     property double latitude: plasmoid.configuration.latitude
     property double longitude: plasmoid.configuration.longitude
-    property int nightTemperature: plasmoid.configuration.nightTemperature
     property int dayTemperature: plasmoid.configuration.dayTemperature
+    property int nightTemperature: plasmoid.configuration.nightTemperature
+    property double dayBrightness: plasmoid.configuration.dayBrightness
+    property double nightBrightness: plasmoid.configuration.nightBrightness
+    property double gammaR: plasmoid.configuration.gammaR
+    property double gammaG: plasmoid.configuration.gammaG
+    property double gammaB: plasmoid.configuration.gammaB
     
     property int manualStartingTemperature: 6500
     property int manualTemperature: manualStartingTemperature
     property bool manualEnabled: false
     
-    property string redshiftCommand: 'redshift -l ' + latitude + ':' + longitude + ' -t ' + dayTemperature + ':' + nightTemperature + ' -r'
-    property string redshiftOneTimeCommand: 'redshift -o -t ' + manualTemperature + ':' + manualTemperature + ' -r'
+    property string redshiftCommand: 'redshift -l ' + latitude + ':' + longitude + ' -t ' + dayTemperature + ':' + nightTemperature + ' -b ' + dayBrightness + ':' + nightBrightness + ' -g ' + gammaR + ':' + gammaG + ':' + gammaB + (smoothTransitions ? '' : ' -r')
+    property string redshiftOneTimeCommand: 'redshift -O ' + manualTemperature + ' -r'
     
     Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
     Plasmoid.compactRepresentation: CompactRepresentation { }
@@ -73,7 +81,7 @@ Item {
     }
     
     function restartRedshiftIfAutostart() {
-        startAfterStop = plasmoid.configuration.autostart
+        startAfterStop = autostart
         stopRedshift()
     }
     
