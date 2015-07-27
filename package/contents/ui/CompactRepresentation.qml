@@ -31,6 +31,7 @@ Item {
     Layout.preferredHeight: itemHeight
     
     property double fontPointSize: itemWidth * 0.65
+    property int temperatureIncrement: 500
     
     Label {
         id: bulbIcon
@@ -75,10 +76,10 @@ Item {
             }
             if (wheel.angleDelta.y > 0) {
                 // wheel up
-                manualTemperature -= 250
+                manualTemperature += temperatureIncrement
             } else {
                 // wheel down
-                manualTemperature += 250
+                manualTemperature -= temperatureIncrement
             }
             redshiftDS.connectedSources.push(redshiftOneTimeCommand)
         }
