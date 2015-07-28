@@ -48,8 +48,9 @@ Item {
     property int manualTemperature: manualStartingTemperature
     property bool manualEnabled: false
     
-    property string redshiftCommand: 'redshift -l ' + latitude + ':' + longitude + ' -t ' + dayTemperature + ':' + nightTemperature + ' -b ' + dayBrightness + ':' + nightBrightness + ' -g ' + gammaR + ':' + gammaG + ':' + gammaB + (smoothTransitions ? '' : ' -r')
-    property string redshiftOneTimeCommand: 'redshift -O ' + manualTemperature + ' -r'
+    property string brightnessAndGamma: ' -b ' + dayBrightness + ':' + nightBrightness + ' -g ' + gammaR + ':' + gammaG + ':' + gammaB
+    property string redshiftCommand: 'redshift -l ' + latitude + ':' + longitude + ' -t ' + dayTemperature + ':' + nightTemperature + brightnessAndGamma + (smoothTransitions ? '' : ' -r')
+    property string redshiftOneTimeCommand: 'redshift -O ' + manualTemperature + brightnessAndGamma + ' -r'
     
     Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
     Plasmoid.compactRepresentation: CompactRepresentation { }
@@ -81,6 +82,7 @@ Item {
     }
     
     function restartRedshiftIfAutostart() {
+        manualEnabled = false
         startAfterStop = autostart
         stopRedshift()
     }
