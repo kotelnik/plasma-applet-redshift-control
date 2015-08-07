@@ -12,6 +12,9 @@
         <entry name="smoothTransitions" type="Bool">
             <default>false</default>
         </entry>
+        <entry name="manualTemperatureStep" type="Int">
+            <default>125</default>
+        </entry>
     </group>
     
     <group name="Advanced">

@@ -31,7 +31,7 @@ Item {
     Layout.preferredHeight: itemHeight
     
     property double fontPointSize: itemWidth * 0.65
-    property int temperatureIncrement: 500
+    property int temperatureIncrement: plasmoid.configuration.manualTemperatureStep
     property int temperatureMin: 1000
     property int temperatureMax: 25000
     
