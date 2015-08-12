@@ -37,7 +37,7 @@ Item {
         columns: 3
         
         Label {
-            text: i18n("Location")
+            text: i18n("Location (IMPORTANT)")
             Layout.columnSpan: 3
             font.bold: true
         }
