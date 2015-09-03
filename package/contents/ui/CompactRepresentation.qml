@@ -34,6 +34,8 @@ Item {
     property int temperatureIncrement: plasmoid.configuration.manualTemperatureStep
     property int temperatureMin: 1000
     property int temperatureMax: 25000
+
+    property bool textColorLight: ((theme.textColor.r + theme.textColor.g + theme.textColor.b) / 3) > 0.5
     
     Label {
         id: bulbIcon
@@ -42,8 +44,8 @@ Item {
         font.family: 'FontAwesome'
         text: '\uf0eb'
         
-        color: active ? '#FF3300' : theme.textColor
-        font.pointSize: fontPointSize
+        color: active ? theme.textColor : (textColorLight ? Qt.tint(theme.textColor, '#80000000') : Qt.tint(theme.textColor, '#80FFFFFF'))
+        font.pointSize: fontPointSize * 0.8
     }
     
     Label {
@@ -56,7 +58,7 @@ Item {
         font.family: 'FontAwesome'
         text: '\uf04c'
         
-        color: theme.textColor
+        color: textColorLight ? Qt.tint(theme.textColor, '#80FFFF00') : Qt.tint(theme.textColor, '#80FF3300')
         font.pointSize: fontPointSize * 0.3
         
         visible: manualEnabled
@@ -72,6 +74,7 @@ Item {
                 manualTemperature = manualStartingTemperature
                 redshiftDS.connectedSources.length = 0
                 manualEnabled = true
+                active = false
             }
             if (redshiftDS.connectedSources.length > 0) {
                 return
