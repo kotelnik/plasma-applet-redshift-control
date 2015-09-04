@@ -30,7 +30,7 @@ Item {
     Layout.preferredWidth: itemWidth
     Layout.preferredHeight: itemHeight
     
-    property double fontPointSize: itemWidth * 0.65
+    property double fontPointSize: itemWidth * 0.58
     property int temperatureIncrement: plasmoid.configuration.manualTemperatureStep
     property int temperatureMin: 1000
     property int temperatureMax: 25000
@@ -45,7 +45,7 @@ Item {
         text: '\uf0eb'
         
         color: active ? theme.textColor : (textColorLight ? Qt.tint(theme.textColor, '#80000000') : Qt.tint(theme.textColor, '#80FFFFFF'))
-        font.pointSize: fontPointSize * 0.8
+        font.pointSize: fontPointSize
     }
     
     Label {
