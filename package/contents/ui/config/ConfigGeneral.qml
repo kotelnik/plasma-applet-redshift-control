@@ -32,7 +32,7 @@ Item {
         }
         
         Label {
-            text: i18n("Manual temperatrue step:")
+            text: i18n("Manual temperature step:")
             Layout.alignment: Qt.AlignRight
         }
         SpinBox {
