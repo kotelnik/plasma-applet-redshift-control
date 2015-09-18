@@ -145,7 +145,7 @@ Item {
     
     function updateTooltip() {
         var toolTipSubText = ''
-        toolTipSubText += '<font size="4">' + (active ? 'Turned On' : (manualEnabled ? ('Manual temperature ' + manualTemperature) : 'Turned Off')) + '</font>'
+        toolTipSubText += '<font size="4">' + (active ? 'Turned on' : (manualEnabled ? ('Manual temperature ' + manualTemperature + 'K') : 'Turned off')) + '</font>'
         toolTipSubText += '<br />'
         toolTipSubText += '<i>Use middle click and wheel to manage screen temperature</i>'
         Plasmoid.toolTipSubText = toolTipSubText
