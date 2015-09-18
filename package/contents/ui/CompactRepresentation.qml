@@ -110,8 +110,4 @@ Item {
         }
     }
     
-    Plasmoid.toolTipMainText: i18n('Redshift Control')
-    Plasmoid.toolTipSubText: 'Use middle click and wheel to manage screen temperature'
-    Plasmoid.icon: 'redshift'
-    
 }

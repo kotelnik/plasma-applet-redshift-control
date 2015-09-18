@@ -97,7 +97,7 @@ Item {
     
     PlasmaCore.DataSource {
         id: redshiftDS
-        engine: "executable"
+        engine: 'executable'
         
         property string redshiftStopSource: 'killall redshift; redshift -x'
 
@@ -142,5 +142,22 @@ Item {
         engine: 'notifications'
         connectedSources: [ 'notifications' ]
     }
+    
+    function updateTooltip() {
+        var toolTipSubText = ''
+        toolTipSubText += '<font size="4">' + (active ? 'Turned On' : (manualEnabled ? ('Manual temperature ' + manualTemperature) : 'Turned Off')) + '</font>'
+        toolTipSubText += '<br />'
+        toolTipSubText += '<i>Use middle click and wheel to manage screen temperature</i>'
+        Plasmoid.toolTipSubText = toolTipSubText
+    }
+    
+    onActiveChanged: updateTooltip()
+    onManualEnabledChanged: updateTooltip()
+    onManualTemperatureChanged: updateTooltip()
+    
+    Plasmoid.toolTipMainText: i18n('Redshift Control')
+    Plasmoid.toolTipSubText: ''
+    Plasmoid.toolTipTextFormat: Text.RichText
+    Plasmoid.icon: 'redshift'
     
 }
