@@ -1,12 +1,10 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.3
-import QtQuick.Layouts 1.0
+import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 
 Item {
-    width: childrenRect.width
-    height: childrenRect.height
-
+    
     property alias cfg_latitude: latitude.value
     property alias cfg_longitude: longitude.value
     property alias cfg_dayTemperature: dayTemperature.value

@@ -16,10 +16,8 @@
  */
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
-import QtGraphicalEffects 1.0
 import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.core 2.0 as PlasmaCore
-import QtQuick.Controls 1.3
+import org.kde.plasma.components 2.0 as PlasmaComponents
 
 Item {
     id: compactRepresentation
@@ -30,14 +28,14 @@ Item {
     Layout.preferredWidth: itemWidth
     Layout.preferredHeight: itemHeight
     
-    property double fontPointSize: itemWidth * 0.58
+    property double fontPixelSize: itemWidth * 0.72
     property int temperatureIncrement: plasmoid.configuration.manualTemperatureStep
     property int temperatureMin: 1000
     property int temperatureMax: 25000
 
     property bool textColorLight: ((theme.textColor.r + theme.textColor.g + theme.textColor.b) / 3) > 0.5
     
-    Label {
+    PlasmaComponents.Label {
         id: bulbIcon
         anchors.centerIn: parent
         
@@ -45,10 +43,10 @@ Item {
         text: '\uf0eb'
         
         color: active ? theme.textColor : (textColorLight ? Qt.tint(theme.textColor, '#80000000') : Qt.tint(theme.textColor, '#80FFFFFF'))
-        font.pointSize: fontPointSize
+        font.pixelSize: fontPixelSize
     }
     
-    Label {
+    PlasmaComponents.Label {
         id: manualIcon
         anchors.right: parent.right
         anchors.rightMargin: parent.width * 0.2
@@ -59,7 +57,8 @@ Item {
         text: '\uf04c'
         
         color: textColorLight ? Qt.tint(theme.textColor, '#80FFFF00') : Qt.tint(theme.textColor, '#80FF3300')
-        font.pointSize: fontPointSize * 0.3
+        font.pixelSize: fontPixelSize * 0.3
+        verticalAlignment: Text.AlignBottom
         
         visible: manualEnabled
     }
