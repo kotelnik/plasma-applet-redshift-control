@@ -44,6 +44,7 @@ Item {
         
         color: active ? theme.textColor : (textColorLight ? Qt.tint(theme.textColor, '#80000000') : Qt.tint(theme.textColor, '#80FFFFFF'))
         font.pixelSize: fontPixelSize
+        font.pointSize: -1
     }
     
     PlasmaComponents.Label {
@@ -58,6 +59,7 @@ Item {
         
         color: textColorLight ? Qt.tint(theme.textColor, '#80FFFF00') : Qt.tint(theme.textColor, '#80FF3300')
         font.pixelSize: fontPixelSize * 0.3
+        font.pointSize: -1
         verticalAlignment: Text.AlignBottom
         
         visible: manualEnabled
