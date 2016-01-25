@@ -147,6 +147,18 @@ Item {
         toolTipSubText += '<br />'
         toolTipSubText += '<i>Use middle click and wheel to manage screen temperature</i>'
         Plasmoid.toolTipSubText = toolTipSubText
+        
+        plasmoidPassiveTimer.stop()
+        plasmoid.status = PlasmaCore.Types.ActiveStatus
+        plasmoidPassiveTimer.restart()
+    }
+    
+    Timer {
+        id: plasmoidPassiveTimer
+        interval: 10000
+        onTriggered: {
+            plasmoid.status = PlasmaCore.Types.PassiveStatus
+        }
     }
     
     onActiveChanged: updateTooltip()
