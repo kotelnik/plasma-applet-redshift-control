@@ -32,6 +32,7 @@ Item {
     property bool autostart: plasmoid.configuration.autostart
     property bool smoothTransitions: plasmoid.configuration.smoothTransitions
     
+    property bool geoclueLocationEnabled: plasmoid.configuration.geoclueLocationEnabled
     property double latitude: plasmoid.configuration.latitude
     property double longitude: plasmoid.configuration.longitude
     property int dayTemperature: plasmoid.configuration.dayTemperature
@@ -45,10 +46,13 @@ Item {
     property int manualStartingTemperature: 6500
     property int manualTemperature: manualStartingTemperature
     property bool manualEnabled: false
+    property int currentTemperature: manualStartingTemperature
     
     property string brightnessAndGamma: ' -b ' + dayBrightness + ':' + nightBrightness + ' -g ' + gammaR + ':' + gammaG + ':' + gammaB
-    property string redshiftCommand: 'redshift -l ' + latitude + ':' + longitude + ' -t ' + dayTemperature + ':' + nightTemperature + brightnessAndGamma + (smoothTransitions ? '' : ' -r')
+    property string locationCmdPart: geoclueLocationEnabled ? '' : ' -l ' + latitude + ':' + longitude
+    property string redshiftCommand: 'redshift' + locationCmdPart + ' -t ' + dayTemperature + ':' + nightTemperature + brightnessAndGamma + (smoothTransitions ? '' : ' -r')
     property string redshiftOneTimeCommand: 'redshift -O ' + manualTemperature + brightnessAndGamma + ' -r'
+    property string redshiftPrintCommand: redshiftCommand + ' -p'
     
     Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
     Plasmoid.compactRepresentation: CompactRepresentation { }
@@ -89,6 +93,11 @@ Item {
         restartRedshiftIfAutostart()
     }
     
+    onRedshiftPrintCommandChanged: {
+        redshiftPrintDS.connectedSources.length = 0
+        redshiftPrintDS.connectedSources.push(redshiftPrintCommand)
+    }
+    
     FontLoader {
         source: '../fonts/fontawesome-webfont-4.3.0.ttf'
     }
@@ -103,7 +112,7 @@ Item {
         
         onNewData: {
             if (data['exit code'] > 0) {
-                print('Error running redshift with command: ' + redshiftCommand + '   ...stderr: ' + data.stderr)
+                print('Error running redshift with command: ' + sourceName + '   ...stderr: ' + data.stderr)
                 
                 var service = notificationsDS.serviceForSource('notifications')
                 var operation = service.operationDescription('createNotification')
@@ -136,6 +145,31 @@ Item {
     }
     
     PlasmaCore.DataSource {
+        id: redshiftPrintDS
+        engine: 'executable'
+        interval: 10000
+        
+        connectedSources: []
+        
+        onNewData: {
+            if (data['exit code'] > 0) {
+                print('Error running redshift print cmd with command: ' + sourceName + '   ...stderr: ' + data.stderr)
+                return
+            }
+            
+            print('redshift print finished with code 0. sourceName: ' + sourceName + ', data: ' + data.stdout)
+            
+            // example output: "Color temperature: 5930K"
+            var match = /Color temperature: ([0-9]+)K/.exec(data.stdout)
+            print('match: ' + match)
+            if (match !== null) {
+                currentTemperature = parseInt(match[1])
+                print('current temperature set: ' + currentTemperature)
+            }
+        }
+    }
+    
+    PlasmaCore.DataSource {
         id: notificationsDS
         engine: 'notifications'
         connectedSources: [ 'notifications' ]
@@ -143,7 +177,7 @@ Item {
     
     function updateTooltip() {
         var toolTipSubText = ''
-        toolTipSubText += '<font size="4">' + (active ? 'Turned on' : (manualEnabled ? ('Manual temperature ' + manualTemperature + 'K') : 'Turned off')) + '</font>'
+        toolTipSubText += '<font size="4">' + (active ? 'Turned on, ' + currentTemperature + 'K' : (manualEnabled ? ('Manual temperature ' + manualTemperature + 'K') : 'Turned off')) + '</font>'
         toolTipSubText += '<br />'
         toolTipSubText += '<i>Use middle click and wheel to manage screen temperature</i>'
         Plasmoid.toolTipSubText = toolTipSubText
@@ -164,6 +198,7 @@ Item {
     onActiveChanged: updateTooltip()
     onManualEnabledChanged: updateTooltip()
     onManualTemperatureChanged: updateTooltip()
+    onCurrentTemperatureChanged: updateTooltip()
     
     Plasmoid.toolTipMainText: i18n('Redshift Control')
     Plasmoid.toolTipSubText: ''

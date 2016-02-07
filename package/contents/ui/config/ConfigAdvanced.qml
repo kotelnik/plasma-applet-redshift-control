@@ -5,6 +5,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 
 Item {
     
+    property alias cfg_geoclueLocationEnabled: geoclueLocationEnabled.checked
     property alias cfg_latitude: latitude.value
     property alias cfg_longitude: longitude.value
     property alias cfg_dayTemperature: dayTemperature.value
@@ -35,13 +36,19 @@ Item {
         columns: 3
         
         Label {
-            text: i18n("Location (IMPORTANT)")
+            text: i18n("Location")
             Layout.columnSpan: 3
             font.bold: true
+        }
+        CheckBox {
+            id: geoclueLocationEnabled
+            text: i18n('Automatic (geoclue)')
+            Layout.columnSpan: 3
         }
         Label {
             text: i18n('Latitude:')
             Layout.alignment: Qt.AlignRight
+            enabled: !geoclueLocationEnabled.checked
         }
         SpinBox {
             id: latitude
@@ -51,6 +58,7 @@ Item {
             maximumValue: 90
             
             Layout.preferredWidth: 150
+            enabled: !geoclueLocationEnabled.checked
         }
         
         Button {
@@ -61,11 +69,13 @@ Item {
                 geolocationDS.connectedSources.push(geolocationDS.locationSource)
             }
             Layout.rowSpan: 2
+            enabled: !geoclueLocationEnabled.checked
         }
         
         Label {
             text: i18n('Longitude:')
             Layout.alignment: Qt.AlignRight
+            enabled: !geoclueLocationEnabled.checked
         }
         SpinBox {
             id: longitude
@@ -75,6 +85,7 @@ Item {
             maximumValue: 180
             
             Layout.preferredWidth: 150
+            enabled: !geoclueLocationEnabled.checked
         }
         
         Item {
