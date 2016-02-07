@@ -15,6 +15,17 @@ Item {
     property alias cfg_gammaR: gammaR.value
     property alias cfg_gammaG: gammaG.value
     property alias cfg_gammaB: gammaB.value
+    property string cfg_renderMode
+    property alias cfg_preserveScreenColour: preserveScreenColour.checked
+    
+    onCfg_renderModeChanged: {
+        print('restore: ' + cfg_renderMode)
+        var comboIndex = modeCombo.find(cfg_renderMode)
+        print('restore index: ' + comboIndex)
+        if (comboIndex > -1) {
+            modeCombo.currentIndex = comboIndex
+        }
+    }
     
     PlasmaCore.DataSource {
         id: geolocationDS
@@ -33,17 +44,17 @@ Item {
     
     GridLayout {
         Layout.fillWidth: true
-        columns: 3
+        columns: 4
         
         Label {
             text: i18n("Location")
-            Layout.columnSpan: 3
+            Layout.columnSpan: parent.columns
             font.bold: true
         }
         CheckBox {
             id: geoclueLocationEnabled
             text: i18n('Automatic (geoclue)')
-            Layout.columnSpan: 3
+            Layout.columnSpan: parent.columns
         }
         Label {
             text: i18n('Latitude:')
@@ -69,6 +80,7 @@ Item {
                 geolocationDS.connectedSources.push(geolocationDS.locationSource)
             }
             Layout.rowSpan: 2
+            Layout.columnSpan: 2
             enabled: !geoclueLocationEnabled.checked
         }
         
@@ -91,14 +103,20 @@ Item {
         Item {
             width: 2
             height: 10
-            Layout.columnSpan: 3
+            Layout.columnSpan: parent.columns
         }
         
         Label {
             text: i18n("Temperature")
-            Layout.columnSpan: 3
+            Layout.columnSpan: 2
             font.bold: true
         }
+        Label {
+            text: i18n("Brightness")
+            Layout.columnSpan: 2
+            font.bold: true
+        }
+        
         Label {
             text: i18n("Day:")
             Layout.alignment: Qt.AlignRight
@@ -109,7 +127,20 @@ Item {
             stepSize: 250
             minimumValue: 1000
             maximumValue: 25000
-            Layout.columnSpan: 2
+            Layout.columnSpan: 1
+        }
+        
+        Label {
+            text: i18n("Day:")
+            Layout.alignment: Qt.AlignRight
+        }
+        SpinBox {
+            id: dayBrightness
+            decimals: 2
+            stepSize: 0.1
+            minimumValue: 0.1
+            maximumValue: 1
+            Layout.columnSpan: 1
         }
         
         Label {
@@ -122,33 +153,9 @@ Item {
             stepSize: 250
             minimumValue: 1000
             maximumValue: 25000
-            Layout.columnSpan: 2
+            Layout.columnSpan: 1
         }
         
-        
-        Item {
-            width: 2
-            height: 10
-            Layout.columnSpan: 3
-        }
-        
-        Label {
-            text: i18n("Brightness")
-            Layout.columnSpan: 3
-            font.bold: true
-        }
-        Label {
-            text: i18n("Day:")
-            Layout.alignment: Qt.AlignRight
-        }
-        SpinBox {
-            id: dayBrightness
-            decimals: 2
-            stepSize: 0.1
-            minimumValue: 0.1
-            maximumValue: 1
-            Layout.columnSpan: 2
-        }
         Label {
             text: i18n("Night:")
             Layout.alignment: Qt.AlignRight
@@ -159,17 +166,17 @@ Item {
             stepSize: 0.1
             minimumValue: 0.1
             maximumValue: 1
-            Layout.columnSpan: 2
+            Layout.columnSpan: 1
         }
         
         Item {
             width: 2
             height: 10
-            Layout.columnSpan: 3
+            Layout.columnSpan: parent.columns
         }
         Label {
             text: i18n("Gamma")
-            Layout.columnSpan: 3
+            Layout.columnSpan: parent.columns
             font.bold: true
         }
         Label {
@@ -177,7 +184,7 @@ Item {
             Layout.alignment: Qt.AlignRight
         }
         RowLayout {
-            Layout.columnSpan: 2
+            Layout.columnSpan: 3
             
             SpinBox { 
                 id:"gammaR"
@@ -199,6 +206,48 @@ Item {
                 minimumValue: 0.1
                 maximumValue: 10
                 stepSize: 0.1
+            }
+        }
+        
+        Item {
+            width: 2
+            height: 10
+            Layout.columnSpan: parent.columns
+        }
+        Label {
+            text: i18n("Mode")
+            Layout.columnSpan: parent.columns
+            font.bold: true
+        }
+        ComboBox {
+            id: modeCombo
+            Layout.columnSpan: 2
+            model: ListModel {
+                ListElement {
+                    text: 'Automatic'
+                    val: ''
+                }
+                ListElement {
+                    text: 'randr'
+                    val: 'randr'
+                }
+                ListElement {
+                    text: 'vidmode'
+                    val: 'vidmode'
+                }
+            }
+            onCurrentIndexChanged: {
+                cfg_renderMode = model.get(currentIndex).val
+                print('saved: ' + cfg_renderMode)
+            }
+        }
+        CheckBox {
+            id: preserveScreenColour
+            Layout.columnSpan: 2
+            text: i18n('Preserve screen colour')
+            enabled: {
+                var mode = modeCombo.model.get(modeCombo.currentIndex).val
+                return mode === 'randr' || mode === 'vidmode'
             }
         }
 

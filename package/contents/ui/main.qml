@@ -42,6 +42,8 @@ Item {
     property double gammaR: plasmoid.configuration.gammaR
     property double gammaG: plasmoid.configuration.gammaG
     property double gammaB: plasmoid.configuration.gammaB
+    property string renderMode: plasmoid.configuration.renderMode
+    property bool preserveScreenColour: renderMode === 'randr' || renderMode === 'vidmode' ? plasmoid.configuration.preserveScreenColour : false
     
     property int manualStartingTemperature: 6500
     property int manualTemperature: manualStartingTemperature
@@ -50,7 +52,8 @@ Item {
     
     property string brightnessAndGamma: ' -b ' + dayBrightness + ':' + nightBrightness + ' -g ' + gammaR + ':' + gammaG + ':' + gammaB
     property string locationCmdPart: geoclueLocationEnabled ? '' : ' -l ' + latitude + ':' + longitude
-    property string redshiftCommand: 'redshift' + locationCmdPart + ' -t ' + dayTemperature + ':' + nightTemperature + brightnessAndGamma + (smoothTransitions ? '' : ' -r')
+    property string modeCmdPart: renderMode === '' ? '' : ' -m ' + renderMode + (preserveScreenColour ? ':preserve=1' : '')
+    property string redshiftCommand: 'redshift' + locationCmdPart + modeCmdPart + ' -t ' + dayTemperature + ':' + nightTemperature + brightnessAndGamma + (smoothTransitions ? '' : ' -r')
     property string redshiftOneTimeCommand: 'redshift -O ' + manualTemperature + brightnessAndGamma + ' -r'
     property string redshiftPrintCommand: redshiftCommand + ' -p'
     
@@ -78,7 +81,6 @@ Item {
     
     function stopRedshift() {
         print('disabling redshift')
-        redshiftDS.connectedSources.length = 0
         redshiftDS.connectedSources.push(redshiftDS.redshiftStopSource)
         active = false
     }
@@ -106,11 +108,21 @@ Item {
         id: redshiftDS
         engine: 'executable'
         
-        property string redshiftStopSource: 'killall redshift; redshift -x'
+        property string redshiftStopSource: preserveScreenColour ? 'pkill -USR1 redshift; killall redshift' : 'killall redshift; redshift -x'
 
         connectedSources: []
         
         onNewData: {
+            if (sourceName === redshiftStopSource) {
+                print('clearing connected sources, stop source was: ' + redshiftStopSource)
+                connectedSources.length = 0
+                if (startAfterStop) {
+                    startAfterStop = false
+                    toggleRedshift()
+                }
+                return
+            }
+            
             if (data['exit code'] > 0) {
                 print('Error running redshift with command: ' + sourceName + '   ...stderr: ' + data.stderr)
                 
@@ -128,16 +140,6 @@ Item {
             
             print('process exited with code 0. sourceName: ' + sourceName + ', data: ' + data.stdout)
             
-            if (sourceName === redshiftStopSource) {
-                print('clearing connected sources')
-                connectedSources.length = 0
-                if (startAfterStop) {
-                    startAfterStop = false
-                    toggleRedshift()
-                }
-                return
-            }
-            
             if (manualEnabled) {
                 connectedSources.length = 0
             }
@@ -147,7 +149,7 @@ Item {
     PlasmaCore.DataSource {
         id: redshiftPrintDS
         engine: 'executable'
-        interval: 10000
+        interval: active ? 10000 : 0
         
         connectedSources: []
         
