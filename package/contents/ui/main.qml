@@ -159,14 +159,12 @@ Item {
                 return
             }
             
-            print('redshift print finished with code 0. sourceName: ' + sourceName + ', data: ' + data.stdout)
-            
             // example output: "Color temperature: 5930K"
             var match = /Color temperature: ([0-9]+)K/.exec(data.stdout)
-            print('match: ' + match)
             if (match !== null) {
                 currentTemperature = parseInt(match[1])
-                print('current temperature set: ' + currentTemperature)
+            } else {
+                print('redshift print finished with code 0. sourceName: ' + sourceName + ', data: ' + data.stdout + ', but not matched the regex')
             }
         }
     }
@@ -191,7 +189,7 @@ Item {
     
     Timer {
         id: plasmoidPassiveTimer
-        interval: 10000
+        interval: 20000
         onTriggered: {
             plasmoid.status = PlasmaCore.Types.PassiveStatus
         }
