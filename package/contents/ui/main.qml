@@ -43,6 +43,7 @@ Item {
     property double gammaG: plasmoid.configuration.gammaG
     property double gammaB: plasmoid.configuration.gammaB
     property string renderMode: plasmoid.configuration.renderMode
+    property string renderModeString: plasmoid.configuration.renderModeString
     property bool preserveScreenColour: renderMode === 'randr' || renderMode === 'vidmode' ? plasmoid.configuration.preserveScreenColour : false
     
     property int manualStartingTemperature: 6500
@@ -50,9 +51,15 @@ Item {
     property bool manualEnabled: false
     property int currentTemperature: manualStartingTemperature
     
+    //
+    // terminal commands
+    //
+    // - parts
     property string brightnessAndGamma: ' -b ' + dayBrightness + ':' + nightBrightness + ' -g ' + gammaR + ':' + gammaG + ':' + gammaB
     property string locationCmdPart: geoclueLocationEnabled ? '' : ' -l ' + latitude + ':' + longitude
-    property string modeCmdPart: renderMode === '' ? '' : ' -m ' + renderMode + (preserveScreenColour ? ':preserve=1' : '')
+    property string modeCmdPart: renderModeString === '' ? '' : ' ' + renderModeString
+    
+    // - commands
     property string redshiftCommand: 'redshift' + locationCmdPart + modeCmdPart + ' -t ' + dayTemperature + ':' + nightTemperature + brightnessAndGamma + (smoothTransitions ? '' : ' -r')
     property string redshiftOneTimeCommand: 'redshift -O ' + manualTemperature + brightnessAndGamma + ' -r'
     property string redshiftPrintCommand: redshiftCommand + ' -p'
@@ -64,6 +71,7 @@ Item {
     Plasmoid.fullRepresentation: CompactRepresentation { }
     
     Component.onCompleted: {
+        print('renderModeString: ' + renderModeString)
         if (!inTray) {
             // not in tray
             Plasmoid.fullRepresentation = null

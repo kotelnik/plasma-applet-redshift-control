@@ -55,9 +55,21 @@
         <entry name="renderMode" type="String">
             <default></default>
         </entry>
+        <entry name="renderModeScreen" type="String">
+            <default></default>
+        </entry>
+        <entry name="renderModeCard" type="String">
+            <default></default>
+        </entry>
+        <entry name="renderModeCrtc" type="String">
+            <default></default>
+        </entry>
         <entry name="preserveScreenColour" type="Bool">
             <default>false</default>
-        </entry> 
+        </entry>
+        <entry name="renderModeString" type="String">
+            <default></default>
+        </entry>
     </group>
     
 </kcfg>
