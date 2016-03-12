@@ -9,6 +9,11 @@ Item {
     property alias cfg_smoothTransitions: smoothTransitions.checked
     property alias cfg_manualTemperatureStep: manualTemperatureStep.value
 
+    Label {
+        text: i18n('Plasmoid version: ') + '1.0.14'
+        anchors.right: parent.right
+    }
+    
     GridLayout {
         Layout.fillWidth: true
         columns: 2
