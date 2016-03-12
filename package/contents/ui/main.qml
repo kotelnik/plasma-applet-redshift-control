@@ -57,12 +57,14 @@ Item {
     property string redshiftOneTimeCommand: 'redshift -O ' + manualTemperature + brightnessAndGamma + ' -r'
     property string redshiftPrintCommand: redshiftCommand + ' -p'
     
+    property bool inTray: (plasmoid.parent === null || plasmoid.parent.objectName === 'taskItemContainer')
+    
     Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
     Plasmoid.compactRepresentation: CompactRepresentation { }
     Plasmoid.fullRepresentation: CompactRepresentation { }
     
     Component.onCompleted: {
-        if (plasmoid.parent !== null) {
+        if (!inTray) {
             // not in tray
             Plasmoid.fullRepresentation = null
         }
