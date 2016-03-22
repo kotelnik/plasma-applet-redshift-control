@@ -62,7 +62,7 @@ Item {
     // - commands
     property string redshiftCommand: 'redshift' + locationCmdPart + modeCmdPart + ' -t ' + dayTemperature + ':' + nightTemperature + brightnessAndGamma + (smoothTransitions ? '' : ' -r')
     property string redshiftOneTimeCommand: 'redshift -O ' + manualTemperature + brightnessAndGamma + ' -r'
-    property string redshiftPrintCommand: redshiftCommand + ' -p'
+    property string redshiftPrintCommand: 'LANG=C ' + redshiftCommand + ' -p'
     
     property bool inTray: (plasmoid.parent === null || plasmoid.parent.objectName === 'taskItemContainer')
     
