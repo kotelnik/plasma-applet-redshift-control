@@ -10,7 +10,7 @@ Item {
     property alias cfg_manualTemperatureStep: manualTemperatureStep.value
 
     Label {
-        text: i18n('Plasmoid version: ') + '1.0.14'
+        text: i18n('Plasmoid version: ') + '1.0.15'
         anchors.right: parent.right
     }
     
