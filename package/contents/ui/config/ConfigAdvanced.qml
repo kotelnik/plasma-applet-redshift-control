@@ -82,7 +82,7 @@ Item {
         
         Button {
             text: i18n('Locate')
-            tooltip: 'This will use Mozilla Location Service exposed natively in KDE'
+            tooltip: i18n('This will use Mozilla Location Service exposed natively in KDE')
             onClicked: {
                 geolocationDS.connectedSources.length = 0
                 geolocationDS.connectedSources.push(geolocationDS.locationSource)
@@ -298,7 +298,7 @@ Item {
         
         TextField {
             id: modeString
-            placeholderText: 'Insert custom mode options'
+            placeholderText: i18n('Insert custom mode options')
             Layout.columnSpan: parent.columns
             Layout.preferredWidth: parent.width - 5
             enabled: isMode(['MANUAL'])
@@ -338,7 +338,7 @@ Item {
         anchors.right: parent.right
     }
     Label {
-        text: 'Redshift version: '
+        text: i18n('Redshift version') + ': '
         font.bold: true
         anchors.right: versionStringLabel.left
     }

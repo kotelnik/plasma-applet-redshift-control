@@ -187,9 +187,9 @@ Item {
     
     function updateTooltip() {
         var toolTipSubText = ''
-        toolTipSubText += '<font size="4">' + (active ? 'Turned on, ' + currentTemperature + 'K' : (manualEnabled ? ('Manual temperature ' + manualTemperature + 'K') : 'Turned off')) + '</font>'
+        toolTipSubText += '<font size="4">' + (active ? i18n('Turned on') + ', ' + currentTemperature + 'K' : (manualEnabled ? (i18n('Manual temperature') + ' ' + manualTemperature + 'K') : i18n('Turned off'))) + '</font>'
         toolTipSubText += '<br />'
-        toolTipSubText += '<i>Use middle click and wheel to manage screen temperature</i>'
+        toolTipSubText += '<i>' + i18n('Use middle click and wheel to manage screen temperature') + '</i>'
         Plasmoid.toolTipSubText = toolTipSubText
         
         plasmoidPassiveTimer.stop()
