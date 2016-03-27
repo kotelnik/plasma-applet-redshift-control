@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: https://github.com/kotelnik/plasma-applet-redshift-control/issues\n"
+"POT-Creation-Date: 2016-03-27 01:53+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../package/contents/config/config.qml:6
+msgid "General"
+msgstr ""
+
+#: ../package/contents/config/config.qml:11
+msgid "Advanced"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:58
+msgid "Location"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:64
+msgid "Automatic (geoclue)"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:68
+msgid "Latitude:"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:84
+msgid "Locate"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:85
+msgid "This will use Mozilla Location Service exposed natively in KDE"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:96
+msgid "Longitude:"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:118
+msgid "Temperature"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:123
+msgid "Brightness"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:129
+#: ../package/contents/ui/config/ConfigAdvanced.qml:142
+msgid "Day:"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:155
+#: ../package/contents/ui/config/ConfigAdvanced.qml:168
+msgid "Night:"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:186
+msgid "Gamma"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:191
+msgid "RGB:"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:226
+msgid "Mode"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:265
+msgid "Screen"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:271
+msgid "Card"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:285
+msgid "CRTC"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:293
+msgid "Preserve screen colour"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:301
+msgid "Insert custom mode options"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigAdvanced.qml:341
+msgid "Redshift version"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigGeneral.qml:13
+msgid "Plasmoid version"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigGeneral.qml:23
+msgid "Autostart"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigGeneral.qml:29
+msgid "Smooth transitions"
+msgstr ""
+
+#: ../package/contents/ui/config/ConfigGeneral.qml:40
+msgid "Manual temperature step:"
+msgstr ""
+
+#: ../package/contents/ui/main.qml:190
+msgid "Turned on"
+msgstr ""
+
+#: ../package/contents/ui/main.qml:190
+msgid "Manual temperature"
+msgstr ""
+
+#: ../package/contents/ui/main.qml:190
+msgid "Turned off"
+msgstr ""
+
+#: ../package/contents/ui/main.qml:192
+msgid "Use middle click and wheel to manage screen temperature"
+msgstr ""
+
+#: ../package/contents/ui/main.qml:213
+msgid "Redshift Control"
+msgstr ""
