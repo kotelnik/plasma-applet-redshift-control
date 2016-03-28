@@ -91,6 +91,7 @@ Item {
     
     function stopRedshift() {
         print('disabling redshift')
+        redshiftDS.connectedSources.length = 0
         redshiftDS.connectedSources.push(redshiftDS.redshiftStopSource)
         active = false
     }
@@ -120,7 +121,7 @@ Item {
         
         property string redshiftStopSource: preserveScreenColour ? 'pkill -USR1 redshift; killall redshift' : 'killall redshift; redshift -x'
 
-        connectedSources: []
+        connectedSources: [redshiftStopSource]
         
         onNewData: {
             if (sourceName === redshiftStopSource) {
