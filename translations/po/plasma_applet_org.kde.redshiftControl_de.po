@@ -121,7 +121,7 @@ msgstr "Manueller Farbtemperaturschritt:"
 
 #: ../package/contents/ui/main.qml:190
 msgid "Turned on"
-msgstr "Eingeschalten"
+msgstr "Eingeschaltet"
 
 #: ../package/contents/ui/main.qml:190
 msgid "Manual temperature"
@@ -129,7 +129,7 @@ msgstr "Manuelle Farbtemperatur"
 
 #: ../package/contents/ui/main.qml:190
 msgid "Turned off"
-msgstr "Ausgeschalten"
+msgstr "Ausgeschaltet"
 
 #: ../package/contents/ui/main.qml:192
 msgid "Use middle click and wheel to manage screen temperature"
