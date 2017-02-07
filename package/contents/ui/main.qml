@@ -51,6 +51,9 @@ Item {
     property int manualTemperature: manualStartingTemperature
     property bool manualEnabled: false
     property int currentTemperature: manualStartingTemperature
+    property double manualStartingBrightness: 1.0
+    property double manualBrightness: 1.0
+    property bool manualEnabledBrightness: false
     
     //
     // terminal commands
@@ -62,7 +65,8 @@ Item {
     
     // - commands
     property string redshiftCommand: 'redshift' + locationCmdPart + modeCmdPart + ' -t ' + dayTemperature + ':' + nightTemperature + brightnessAndGamma + (smoothTransitions ? '' : ' -r')
-    property string redshiftOneTimeCommand: 'redshift -O ' + manualTemperature + brightnessAndGamma + ' -r'
+    property string redshiftOneTimeBrightnessAndGamma: ' -b ' + (manualEnabledBrightness ? manualBrightness : dayBrightness) + ':' + (manualEnabledBrightness ? manualBrightness : nightBrightness) + ' -g ' + gammaR + ':' + gammaG + ':' + gammaB
+    property string redshiftOneTimeCommand: 'redshift -O ' + manualTemperature + redshiftOneTimeBrightnessAndGamma + ' -r'
     property string redshiftPrintCommand: 'LANG=C ' + redshiftCommand + ' -p'
     
     property bool inTray: (plasmoid.parent === null || plasmoid.parent.objectName === 'taskItemContainer')

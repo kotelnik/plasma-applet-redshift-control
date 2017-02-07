@@ -32,6 +32,9 @@ Item {
     property int temperatureIncrement: plasmoid.configuration.manualTemperatureStep
     property int temperatureMin: 1000
     property int temperatureMax: 25000
+    property double brightnessIncrement: 0.05//plasmoid.configuration.manualBrightnessStep
+    property double brightnessMin: 0.1
+    property double brightnessMax: 1.0
 
     property bool textColorLight: ((theme.textColor.r + theme.textColor.g + theme.textColor.b) / 3) > 0.5
     
@@ -66,6 +69,7 @@ Item {
     }
     
     MouseArea {
+        id: mouseArea
         anchors.fill: parent
         
         acceptedButtons: Qt.LeftButton | Qt.MiddleButton
@@ -83,26 +87,42 @@ Item {
             }
             if (wheel.angleDelta.y > 0) {
                 // wheel up
-                manualTemperature += temperatureIncrement
-                if (manualTemperature > temperatureMax) {
-                    manualTemperature = temperatureMax
+                if (manualEnabledBrightness) {
+                    manualBrightness += brightnessIncrement
+                    if (manualBrightness > brightnessMax) {
+                        manualBrightness = brightnessMax
+                    }
+                } else {
+                    manualTemperature += temperatureIncrement
+                    if (manualTemperature > temperatureMax) {
+                        manualTemperature = temperatureMax
+                    }
                 }
             } else {
                 // wheel down
-                manualTemperature -= temperatureIncrement
-                if (manualTemperature < temperatureMin) {
-                    manualTemperature = temperatureMin
+                if (manualEnabledBrightness) {
+                    manualBrightness -= brightnessIncrement
+                    if (manualBrightness < brightnessMin) {
+                        manualBrightness = brightnessMin
+                    }
+                } else {
+                    manualTemperature -= temperatureIncrement
+                    if (manualTemperature < temperatureMin) {
+                        manualTemperature = temperatureMin
+                    }
                 }
             }
             redshiftDS.connectedSources.push(redshiftOneTimeCommand)
         }
-        
+
         onClicked: {
+            manualEnabledBrightness = (mouse.button === Qt.MiddleButton)
+
             if (!manualEnabled) {
                 toggleRedshift()
                 return
             }
-            
+
             manualEnabled = false
             if (previouslyActive) {
                 toggleRedshift()
