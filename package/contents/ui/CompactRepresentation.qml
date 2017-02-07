@@ -75,6 +75,7 @@ Item {
                 manualTemperature = manualStartingTemperature
                 redshiftDS.connectedSources.length = 0
                 manualEnabled = true
+                previouslyActive = active
                 active = false
             }
             if (redshiftDS.connectedSources.length > 0) {
@@ -103,7 +104,7 @@ Item {
             }
             
             manualEnabled = false
-            if (active) {
+            if (previouslyActive) {
                 toggleRedshift()
             } else {
                 stopRedshift()

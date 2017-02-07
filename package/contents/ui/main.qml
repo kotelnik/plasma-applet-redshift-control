@@ -27,6 +27,7 @@ Item {
     property bool vertical: (plasmoid.formFactor == PlasmaCore.Types.Vertical)
     
     property bool active: false
+    property bool previouslyActive: false
     property bool startAfterStop: false
     
     property bool autostart: plasmoid.configuration.autostart
