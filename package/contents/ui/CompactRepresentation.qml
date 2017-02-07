@@ -72,7 +72,7 @@ Item {
         
         onWheel: {
             if (!manualEnabled) {
-                manualTemperature = manualStartingTemperature
+                manualTemperature = currentTemperature
                 redshiftDS.connectedSources.length = 0
                 manualEnabled = true
                 previouslyActive = active
