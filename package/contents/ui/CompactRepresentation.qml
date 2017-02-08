@@ -21,62 +21,65 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 
 Item {
     id: compactRepresentation
-    
+
     property double itemWidth:  parent === null ? 0 : vertical ? parent.width : parent.height
     property double itemHeight: itemWidth
-    
+
     Layout.preferredWidth: itemWidth
     Layout.preferredHeight: itemHeight
-    
+
     property double fontPixelSize: itemWidth * 0.72
     property int temperatureIncrement: plasmoid.configuration.manualTemperatureStep
     property int temperatureMin: 1000
     property int temperatureMax: 25000
-    property double brightnessIncrement: 0.05//plasmoid.configuration.manualBrightnessStep
-    property double brightnessMin: 0.1
-    property double brightnessMax: 1.0
+
+    // x100 for better counting
+    property int brightnessIncrement: 5//plasmoid.configuration.manualBrightnessStep
+    property int brightnessMin: 10
+    property int brightnessMax: 100
 
     property bool textColorLight: ((theme.textColor.r + theme.textColor.g + theme.textColor.b) / 3) > 0.5
-    
+
     PlasmaComponents.Label {
         id: bulbIcon
         anchors.centerIn: parent
-        
+
         font.family: 'FontAwesome'
         text: '\uf0eb'
-        
+
         color: active ? theme.textColor : (textColorLight ? Qt.tint(theme.textColor, '#80000000') : Qt.tint(theme.textColor, '#80FFFFFF'))
         font.pixelSize: fontPixelSize
         font.pointSize: -1
     }
-    
+
     PlasmaComponents.Label {
         id: manualIcon
         anchors.right: parent.right
         anchors.rightMargin: parent.width * 0.2
         anchors.bottom: parent.bottom
         anchors.bottomMargin: parent.height * 0.1
-        
+
         font.family: 'FontAwesome'
         text: '\uf04c'
-        
+
         color: textColorLight ? Qt.tint(theme.textColor, '#80FFFF00') : Qt.tint(theme.textColor, '#80FF3300')
         font.pixelSize: fontPixelSize * 0.3
         font.pointSize: -1
         verticalAlignment: Text.AlignBottom
-        
+
         visible: manualEnabled
     }
-    
+
     MouseArea {
         id: mouseArea
         anchors.fill: parent
-        
+
         acceptedButtons: Qt.LeftButton | Qt.MiddleButton
-        
+
         onWheel: {
             if (!manualEnabled) {
                 manualTemperature = currentTemperature
+                manualBrightness = currentBrightness
                 redshiftDS.connectedSources.length = 0
                 manualEnabled = true
                 previouslyActive = active
@@ -92,6 +95,7 @@ Item {
                     if (manualBrightness > brightnessMax) {
                         manualBrightness = brightnessMax
                     }
+                    currentBrightness = manualBrightness
                 } else {
                     manualTemperature += temperatureIncrement
                     if (manualTemperature > temperatureMax) {
@@ -105,6 +109,7 @@ Item {
                     if (manualBrightness < brightnessMin) {
                         manualBrightness = brightnessMin
                     }
+                    currentBrightness = manualBrightness
                 } else {
                     manualTemperature -= temperatureIncrement
                     if (manualTemperature < temperatureMin) {
@@ -116,7 +121,11 @@ Item {
         }
 
         onClicked: {
-            manualEnabledBrightness = (mouse.button === Qt.MiddleButton)
+            if (mouse.button === Qt.MiddleButton) {
+                manualEnabledBrightness = !manualEnabledBrightness
+                updateTooltip()
+                return;
+            }
 
             if (!manualEnabled) {
                 toggleRedshift()
@@ -131,5 +140,5 @@ Item {
             }
         }
     }
-    
+
 }
