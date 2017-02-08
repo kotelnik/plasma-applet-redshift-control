@@ -16,6 +16,7 @@
  */
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
+import QtGraphicalEffects 1.0
 import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.components 2.0 as PlasmaComponents
 
@@ -34,11 +35,14 @@ Item {
     property int temperatureMax: 25000
 
     // x100 for better counting
-    property int brightnessIncrement: 5//plasmoid.configuration.manualBrightnessStep
+    property int brightnessIncrement: 5//TODO from plasmoid.configuration.manualBrightnessStep
     property int brightnessMin: 10
     property int brightnessMax: 100
 
     property bool textColorLight: ((theme.textColor.r + theme.textColor.g + theme.textColor.b) / 3) > 0.5
+    property color bulbIconColorActive: theme.textColor
+    property color bulbIconColorInactive: textColorLight ? Qt.tint(theme.textColor, '#80000000') : Qt.tint(theme.textColor, '#80FFFFFF')
+    property color bulbIconColorCurrent: active ? bulbIconColorActive : bulbIconColorInactive
 
     PlasmaComponents.Label {
         id: bulbIcon
@@ -47,9 +51,12 @@ Item {
         font.family: 'FontAwesome'
         text: '\uf0eb'
 
-        color: active ? theme.textColor : (textColorLight ? Qt.tint(theme.textColor, '#80000000') : Qt.tint(theme.textColor, '#80FFFFFF'))
+        color: bulbIconColorCurrent
         font.pixelSize: fontPixelSize
         font.pointSize: -1
+
+        ColorAnimation on color { id: animTemperature; running: false; from: '#ff3c0b'; to: bulbIconColorCurrent; duration: 1000 }
+        ColorAnimation on color { id: animBrighness;   running: false; from: '#8c9c00'; to: bulbIconColorCurrent; duration: 1000 }
     }
 
     PlasmaComponents.Label {
@@ -124,6 +131,15 @@ Item {
             if (mouse.button === Qt.MiddleButton) {
                 manualEnabledBrightness = !manualEnabledBrightness
                 updateTooltip()
+                if (manualEnabledBrightness) {
+                    animBrighness.running = false
+                    animTemperature.running = false
+                    animBrighness.running = true
+                } else {
+                    animBrighness.running = false
+                    animTemperature.running = false
+                    animTemperature.running = true
+                }
                 return;
             }
 
