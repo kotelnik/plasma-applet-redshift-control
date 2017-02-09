@@ -74,7 +74,6 @@ Item {
 
     Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
     Plasmoid.compactRepresentation: CompactRepresentation { }
-    Plasmoid.fullRepresentation: CompactRepresentation { }
 
     Component.onCompleted: {
         print('renderModeString: ' + renderModeString)
@@ -242,5 +241,20 @@ Item {
     Plasmoid.toolTipSubText: ''
     Plasmoid.toolTipTextFormat: Text.RichText
     Plasmoid.icon: 'redshift'
+
+    // NOTE: taken from colorPicker plasmoid
+    // prevents the popup from actually opening, needs to be queued
+    Timer {
+        id: delayedRunShortcutTimer
+        interval: 0
+        onTriggered: {
+            plasmoid.expanded = false
+            toggleRedshift()
+        }
+    }
+
+    Plasmoid.onActivated: {
+        delayedRunShortcutTimer.start()
+    }
 
 }
