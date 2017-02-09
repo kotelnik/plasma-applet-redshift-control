@@ -35,14 +35,16 @@ Item {
     property int temperatureMax: 25000
 
     // x100 for better counting
-    property int brightnessIncrement: 5//TODO from plasmoid.configuration.manualBrightnessStep
+    property int brightnessIncrement: plasmoid.configuration.manualBrightnessStep * 100
     property int brightnessMin: 10
     property int brightnessMax: 100
 
     property bool textColorLight: ((theme.textColor.r + theme.textColor.g + theme.textColor.b) / 3) > 0.5
-    property color bulbIconColorActive: theme.textColor
-    property color bulbIconColorInactive: textColorLight ? Qt.tint(theme.textColor, '#80000000') : Qt.tint(theme.textColor, '#80FFFFFF')
-    property color bulbIconColorCurrent: active ? bulbIconColorActive : bulbIconColorInactive
+    property color bulbIconColourActive: theme.textColor
+    property color bulbIconColourInactive: textColorLight ? Qt.tint(theme.textColor, '#80000000') : Qt.tint(theme.textColor, '#80FFFFFF')
+    property color bulbIconColourCurrent: active ? bulbIconColourActive : bulbIconColourInactive
+    property color redshiftColour: '#ff3c0b'
+    property color brightnessColour: '#39a2ee'
 
     PlasmaComponents.Label {
         id: bulbIcon
@@ -51,12 +53,12 @@ Item {
         font.family: 'FontAwesome'
         text: '\uf0eb'
 
-        color: bulbIconColorCurrent
+        color: bulbIconColourCurrent
         font.pixelSize: fontPixelSize
         font.pointSize: -1
 
-        ColorAnimation on color { id: animTemperature; running: false; from: '#ff3c0b'; to: bulbIconColorCurrent; duration: 1000 }
-        ColorAnimation on color { id: animBrighness;   running: false; from: '#8c9c00'; to: bulbIconColorCurrent; duration: 1000 }
+        ColorAnimation on color { id: animWheelTemperature; running: false; from: redshiftColour; to: bulbIconColourCurrent; duration: 1000 }
+        ColorAnimation on color { id: animWheelBrighness;   running: false; from: brightnessColour; to: bulbIconColourCurrent; duration: 1000 }
     }
 
     PlasmaComponents.Label {
@@ -132,13 +134,13 @@ Item {
                 manualEnabledBrightness = !manualEnabledBrightness
                 updateTooltip()
                 if (manualEnabledBrightness) {
-                    animBrighness.running = false
-                    animTemperature.running = false
-                    animBrighness.running = true
+                    animWheelBrighness.running = false
+                    animWheelTemperature.running = false
+                    animWheelBrighness.running = true
                 } else {
-                    animBrighness.running = false
-                    animTemperature.running = false
-                    animTemperature.running = true
+                    animWheelBrighness.running = false
+                    animWheelTemperature.running = false
+                    animWheelTemperature.running = true
                 }
                 return;
             }

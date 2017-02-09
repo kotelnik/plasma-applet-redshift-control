@@ -15,6 +15,9 @@
         <entry name="manualTemperatureStep" type="Int">
             <default>125</default>
         </entry>
+        <entry name="manualBrightnessStep" type="Double">
+            <default>0.05</default>
+        </entry>
     </group>
     
     <group name="Advanced">

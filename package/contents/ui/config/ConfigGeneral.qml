@@ -4,38 +4,39 @@ import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 
 Item {
-    
+
     property alias cfg_autostart: autostart.checked
     property alias cfg_smoothTransitions: smoothTransitions.checked
     property alias cfg_manualTemperatureStep: manualTemperatureStep.value
+    property alias cfg_manualBrightnessStep: manualBrightnessStep.value
 
     Label {
         text: i18n('Plasmoid version') + ': 1.0.17'
         anchors.right: parent.right
     }
-    
+
     GridLayout {
         Layout.fillWidth: true
         columns: 2
-        
+
         CheckBox {
             id: autostart
             text: i18n('Autostart')
             Layout.columnSpan: 2
         }
-        
+
         CheckBox {
             id: smoothTransitions
             text: i18n('Smooth transitions')
             Layout.columnSpan: 2
         }
-        
+
         Item {
             width: 2
             height: 10
             Layout.columnSpan: 2
         }
-        
+
         Label {
             text: i18n("Manual temperature step:")
             Layout.alignment: Qt.AlignRight
@@ -47,6 +48,18 @@ Item {
             minimumValue: 25
             maximumValue: 5000
         }
+
+        Label {
+            text: i18n("Manual brightness step:")
+            Layout.alignment: Qt.AlignRight
+        }
+        SpinBox {
+            id: manualBrightnessStep
+            decimals: 2
+            stepSize: 0.01
+            minimumValue: 0.01
+            maximumValue: 0.2
+        }
     }
-    
+
 }
