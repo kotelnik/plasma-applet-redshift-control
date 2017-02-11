@@ -1,7 +1,6 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.3
 import QtQuick.Layouts 1.1
-import org.kde.plasma.core 2.0 as PlasmaCore
 
 Item {
 
@@ -9,9 +8,12 @@ Item {
     property alias cfg_smoothTransitions: smoothTransitions.checked
     property alias cfg_manualTemperatureStep: manualTemperatureStep.value
     property alias cfg_manualBrightnessStep: manualBrightnessStep.value
+    property alias cfg_useDefaultIcons: useDefaultIcons.checked
+    property string cfg_iconActive: plasmoid.configuration.iconActive
+    property string cfg_iconInactive: plasmoid.configuration.iconInactive
 
     Label {
-        text: i18n('Plasmoid version') + ': 1.0.17'
+        text: i18n('Plasmoid version') + ': 1.0.18'
         anchors.right: parent.right
     }
 
@@ -59,6 +61,42 @@ Item {
             stepSize: 0.01
             minimumValue: 0.01
             maximumValue: 0.2
+        }
+
+        Item {
+            width: 2
+            height: 10
+            Layout.columnSpan: 2
+        }
+
+        CheckBox {
+            id: useDefaultIcons
+            text: i18n('Use default icons')
+            Layout.columnSpan: 2
+        }
+
+        Label {
+            text: i18n("Active:")
+            Layout.alignment: Qt.AlignRight
+        }
+
+        IconPicker {
+            currentIcon: cfg_iconActive
+            defaultIcon: 'redshift-status-on'
+            onIconChanged: cfg_iconActive = iconName
+            enabled: !useDefaultIcons.checked
+        }
+
+        Label {
+            text: i18n("Inactive:")
+            Layout.alignment: Qt.AlignRight
+        }
+
+        IconPicker {
+            currentIcon: cfg_iconInactive
+            defaultIcon: 'redshift-status-off'
+            onIconChanged: cfg_iconInactive = iconName
+            enabled: !useDefaultIcons.checked
         }
     }
 

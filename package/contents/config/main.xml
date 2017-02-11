@@ -18,6 +18,15 @@
         <entry name="manualBrightnessStep" type="Double">
             <default>0.05</default>
         </entry>
+        <entry name="useDefaultIcons" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="iconActive" type="String">
+            <default>redshift-status-on</default>
+        </entry>
+        <entry name="iconInactive" type="String">
+            <default>redshift-status-off</default>
+        </entry>
     </group>
     
     <group name="Advanced">

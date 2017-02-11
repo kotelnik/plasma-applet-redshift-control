@@ -18,6 +18,7 @@ import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 import org.kde.plasma.plasmoid 2.0
+import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 
 Item {
@@ -43,12 +44,21 @@ Item {
     property color bulbIconColourActive: theme.textColor
     property color bulbIconColourInactive: textColorLight ? Qt.tint(theme.textColor, '#80000000') : Qt.tint(theme.textColor, '#80FFFFFF')
     property color bulbIconColourCurrent: active ? bulbIconColourActive : bulbIconColourInactive
+    property string customIconSource: active ? plasmoid.configuration.iconActive : plasmoid.configuration.iconInactive
     property color redshiftColour: '#ff3c0b'
     property color brightnessColour: '#39a2ee'
+
+    PlasmaCore.IconItem {
+        id: customIcon
+        anchors.fill: parent
+        visible: !plasmoid.configuration.useDefaultIcons
+        source: customIconSource
+    }
 
     PlasmaComponents.Label {
         id: bulbIcon
         anchors.centerIn: parent
+        visible: plasmoid.configuration.useDefaultIcons
 
         font.family: 'FontAwesome'
         text: '\uf0eb'
