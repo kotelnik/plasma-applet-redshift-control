@@ -31,7 +31,7 @@ msgstr "Emplacement"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:64
 msgid "Automatic (geoclue)"
-msgstr "Automatique (géo-approximation)"
+msgstr "Automatique (geoclue)"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:68
 msgid "Latitude:"
@@ -44,7 +44,7 @@ msgstr "Localiser"
 #: ../package/contents/ui/config/ConfigAdvanced.qml:85
 msgid "This will use Mozilla Location Service exposed natively in KDE"
 msgstr ""
-"Permettra l'usage du service de localisation de Mozilla, exposé nativement"
+"Permettra l’usage du service de localisation de Mozilla, exposé nativement"
 " par KDE"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:96
@@ -107,7 +107,7 @@ msgstr "Version de Redshift"
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:13
 msgid "Plasmoid version"
-msgstr "Version du plasmoide"
+msgstr "Version du plasmoïde"
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:23
 msgid "Autostart"
@@ -123,7 +123,7 @@ msgstr "Échelon manuel de température :"
 
 #: ../package/contents/ui/main.qml:190
 msgid "Turned on"
-msgstr "Enclanché"
+msgstr "Activé"
 
 #: ../package/contents/ui/main.qml:190
 msgid "Manual temperature"
@@ -131,7 +131,7 @@ msgstr "Température manuelle"
 
 #: ../package/contents/ui/main.qml:190
 msgid "Turned off"
-msgstr "Déclanché"
+msgstr "Désactivé"
 
 #: ../package/contents/ui/main.qml:192
 msgid "Use middle click and wheel to manage screen temperature"
