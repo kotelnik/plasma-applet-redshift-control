@@ -1,6 +1,6 @@
-# Copyright (C) 2017 Travkin nikita <nikitos.tr@gmail.com>
+# Copyright (C) 2017 Travkin Nikita <nikitos.tr@gmail.com>
 # This file is distributed under the same license as the PACKAGE package.
-# Travkin nikita <nikitos.tr@gmail.com>, 2017.
+# Travkin Nikita <nikitos.tr@gmail.com>, 2017.
 #
 msgid ""
 msgstr ""
@@ -9,12 +9,12 @@ msgstr ""
 "control/issues\n"
 "POT-Creation-Date: 2016-03-27 10:46+0200\n"
 "PO-Revision-Date: 2017-12-23 10:45+0500\n"
-"Language-Team: Travkin nikita <nikitos.tr@gmail.com>\n"
+"Language-Team: Travkin Nikita <nikitos.tr@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.4\n"
-"Last-Translator: Travkin nikita <nikitos.tr@gmail.com>\n"
+"Last-Translator: Travkin Nikita <nikitos.tr@gmail.com>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Language: ru\n"
