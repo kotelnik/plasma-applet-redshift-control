@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/kotelnik/plasma-applet-redshift-"
 "control/issues\n"
-"POT-Creation-Date: 2017-12-27 13:07+0100\n"
+"POT-Creation-Date: 2017-12-27 13:28+0100\n"
 "PO-Revision-Date: 2016-03-27 01:37+0100\n"
 "Last-Translator: Martin Kotelnik <clearmartin@seznam.cz>\n"
 "Language-Team: Martin Kotelnik <clearmartin@seznam.cz>\n"
@@ -161,7 +161,8 @@ msgstr "Vypnuto"
 #: ../package/contents/ui/main.qml:211
 msgid ""
 "Use left / middle click and wheel to manage screen temperature and brightness"
-msgstr "Použijte click / middle-click a kolečko k ovládání teploty barev a jasu"
+msgstr ""
+"Použijte click / middle-click a kolečko k ovládání teploty barev a jasu"
 
 #: ../package/contents/ui/main.qml:214
 msgid "Mouse wheel controls software brightness"
