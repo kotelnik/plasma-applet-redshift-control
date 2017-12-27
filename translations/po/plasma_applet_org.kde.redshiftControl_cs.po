@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/kotelnik/plasma-applet-redshift-"
 "control/issues\n"
-"POT-Creation-Date: 2016-03-27 10:46+0200\n"
+"POT-Creation-Date: 2017-12-27 13:07+0100\n"
 "PO-Revision-Date: 2016-03-27 01:37+0100\n"
 "Last-Translator: Martin Kotelnik <clearmartin@seznam.cz>\n"
 "Language-Team: Martin Kotelnik <clearmartin@seznam.cz>\n"
@@ -17,124 +17,160 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../package/contents/config/config.qml:6
+#: ../package/contents/config/config.qml:22
 msgid "General"
 msgstr "Obecné"
 
-#: ../package/contents/config/config.qml:11
+#: ../package/contents/config/config.qml:27
 msgid "Advanced"
 msgstr "Pokročilé"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:58
+#: ../package/contents/ui/config/ConfigAdvanced.qml:74
 msgid "Location"
 msgstr "Lokace"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:64
+#: ../package/contents/ui/config/ConfigAdvanced.qml:80
 msgid "Automatic (geoclue)"
 msgstr "Automaticky (geoclue)"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:68
+#: ../package/contents/ui/config/ConfigAdvanced.qml:84
 msgid "Latitude:"
 msgstr "Šířka:"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:84
+#: ../package/contents/ui/config/ConfigAdvanced.qml:100
 msgid "Locate"
 msgstr "Najít polohu"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:85
+#: ../package/contents/ui/config/ConfigAdvanced.qml:101
 msgid "This will use Mozilla Location Service exposed natively in KDE"
 msgstr "Bude pouižta služba Mozilla Location Service nativně dostupná v KDE"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:96
+#: ../package/contents/ui/config/ConfigAdvanced.qml:112
 msgid "Longitude:"
 msgstr "Délka"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:118
+#: ../package/contents/ui/config/ConfigAdvanced.qml:134
 msgid "Temperature"
 msgstr "Teplota"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:123
+#: ../package/contents/ui/config/ConfigAdvanced.qml:139
+#: ../package/contents/ui/main.qml:204
 msgid "Brightness"
 msgstr "Světlost"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:129
-#: ../package/contents/ui/config/ConfigAdvanced.qml:142
+#: ../package/contents/ui/config/ConfigAdvanced.qml:145
+#: ../package/contents/ui/config/ConfigAdvanced.qml:158
 msgid "Day:"
 msgstr "Den"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:155
-#: ../package/contents/ui/config/ConfigAdvanced.qml:168
+#: ../package/contents/ui/config/ConfigAdvanced.qml:171
+#: ../package/contents/ui/config/ConfigAdvanced.qml:184
 msgid "Night:"
 msgstr "Noc"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:186
+#: ../package/contents/ui/config/ConfigAdvanced.qml:202
 msgid "Gamma"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:191
+#: ../package/contents/ui/config/ConfigAdvanced.qml:207
 msgid "RGB:"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:226
+#: ../package/contents/ui/config/ConfigAdvanced.qml:242
 msgid "Mode"
 msgstr "Mód"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:265
+#: ../package/contents/ui/config/ConfigAdvanced.qml:281
 msgid "Screen"
 msgstr "Obrazovka"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:271
+#: ../package/contents/ui/config/ConfigAdvanced.qml:287
 msgid "Card"
 msgstr "Karta"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:285
+#: ../package/contents/ui/config/ConfigAdvanced.qml:301
 msgid "CRTC"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:293
+#: ../package/contents/ui/config/ConfigAdvanced.qml:309
 msgid "Preserve screen colour"
 msgstr "Zachovávat barvu"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:301
+#: ../package/contents/ui/config/ConfigAdvanced.qml:317
 msgid "Insert custom mode options"
 msgstr "Ruční nastavení módu"
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:341
+#: ../package/contents/ui/config/ConfigAdvanced.qml:357
 msgid "Redshift version"
 msgstr "Verze Redshiftu"
 
-#: ../package/contents/ui/config/ConfigGeneral.qml:13
+#: ../package/contents/ui/config/ConfigGeneral.qml:32
 msgid "Plasmoid version"
 msgstr "Verze apletu"
 
-#: ../package/contents/ui/config/ConfigGeneral.qml:23
+#: ../package/contents/ui/config/ConfigGeneral.qml:42
 msgid "Autostart"
 msgstr "Zapnout při startu systému"
 
-#: ../package/contents/ui/config/ConfigGeneral.qml:29
+#: ../package/contents/ui/config/ConfigGeneral.qml:48
 msgid "Smooth transitions"
 msgstr "Pozvolná změna barev"
 
-#: ../package/contents/ui/config/ConfigGeneral.qml:40
+#: ../package/contents/ui/config/ConfigGeneral.qml:59
 msgid "Manual temperature step:"
 msgstr "Rychlost ručního nastavování"
 
-#: ../package/contents/ui/main.qml:190
+#: ../package/contents/ui/config/ConfigGeneral.qml:71
+msgid "Manual brightness step:"
+msgstr "Rychlost ručního nastavování"
+
+#: ../package/contents/ui/config/ConfigGeneral.qml:90
+msgid "Use default icons"
+msgstr "Použít výchozí ikony"
+
+#: ../package/contents/ui/config/ConfigGeneral.qml:95
+msgid "Active:"
+msgstr "Aktivní"
+
+#: ../package/contents/ui/config/ConfigGeneral.qml:107
+msgid "Inactive:"
+msgstr "Deaktivováno"
+
+#: ../package/contents/ui/config/IconPicker.qml:84
+msgctxt "@item:inmenu Open icon chooser dialog"
+msgid "Choose..."
+msgstr "Vyberte..."
+
+#: ../package/contents/ui/config/IconPicker.qml:89
+msgctxt "@item:inmenu Reset icon to default"
+msgid "Clear Icon"
+msgstr "Smazat ikonu"
+
+#: ../package/contents/ui/main.qml:201
 msgid "Turned on"
 msgstr "Zapnuto"
 
-#: ../package/contents/ui/main.qml:190
+#: ../package/contents/ui/main.qml:204
 msgid "Manual temperature"
 msgstr "Ruční nastavení"
 
-#: ../package/contents/ui/main.qml:190
+#: ../package/contents/ui/main.qml:206
 msgid "Turned off"
 msgstr "Vypnuto"
 
-#: ../package/contents/ui/main.qml:192
-msgid "Use middle click and wheel to manage screen temperature"
-msgstr "Použijte middle-click a kolečko k ovládání teploty barev"
+#: ../package/contents/ui/main.qml:211
+msgid ""
+"Use left / middle click and wheel to manage screen temperature and brightness"
+msgstr "Použijte click / middle-click a kolečko k ovládání teploty barev a jasu"
 
-#: ../package/contents/ui/main.qml:213
+#: ../package/contents/ui/main.qml:214
+msgid "Mouse wheel controls software brightness"
+msgstr "Kolečko myši nyní ovládá jas"
+
+#: ../package/contents/ui/main.qml:216
+msgid "Mouse wheel controls screen temperature"
+msgstr "Kolečko myši nyní ovládá teplotu barev"
+
+#: ../package/contents/ui/main.qml:240
 msgid "Redshift Control"
 msgstr ""

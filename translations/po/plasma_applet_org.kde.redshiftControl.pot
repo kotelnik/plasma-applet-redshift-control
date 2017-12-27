@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/kotelnik/plasma-applet-redshift-control/issues\n"
-"POT-Creation-Date: 2017-12-26 23:59+0500\n"
+"POT-Creation-Date: 2017-12-27 13:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,191 +17,160 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../package/contents/config/config.qml:6
-#: package/contents/config/config.qml:22
+#: ../package/contents/config/config.qml:22
 msgid "General"
 msgstr ""
 
-#: ../package/contents/config/config.qml:11
-#: package/contents/config/config.qml:27
+#: ../package/contents/config/config.qml:27
 msgid "Advanced"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:58
-#: package/contents/ui/config/ConfigAdvanced.qml:74
+#: ../package/contents/ui/config/ConfigAdvanced.qml:74
 msgid "Location"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:64
-#: package/contents/ui/config/ConfigAdvanced.qml:80
+#: ../package/contents/ui/config/ConfigAdvanced.qml:80
 msgid "Automatic (geoclue)"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:68
-#: package/contents/ui/config/ConfigAdvanced.qml:84
+#: ../package/contents/ui/config/ConfigAdvanced.qml:84
 msgid "Latitude:"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:84
-#: package/contents/ui/config/ConfigAdvanced.qml:100
+#: ../package/contents/ui/config/ConfigAdvanced.qml:100
 msgid "Locate"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:85
-#: package/contents/ui/config/ConfigAdvanced.qml:101
+#: ../package/contents/ui/config/ConfigAdvanced.qml:101
 msgid "This will use Mozilla Location Service exposed natively in KDE"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:96
-#: package/contents/ui/config/ConfigAdvanced.qml:112
+#: ../package/contents/ui/config/ConfigAdvanced.qml:112
 msgid "Longitude:"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:118
-#: package/contents/ui/config/ConfigAdvanced.qml:134
+#: ../package/contents/ui/config/ConfigAdvanced.qml:134
 msgid "Temperature"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:123
-#: package/contents/ui/main.qml:204
-#: package/contents/ui/config/ConfigAdvanced.qml:139
+#: ../package/contents/ui/config/ConfigAdvanced.qml:139
+#: ../package/contents/ui/main.qml:204
 msgid "Brightness"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:129
-#: ../package/contents/ui/config/ConfigAdvanced.qml:142
-#: package/contents/ui/config/ConfigAdvanced.qml:145
-#: package/contents/ui/config/ConfigAdvanced.qml:158
+#: ../package/contents/ui/config/ConfigAdvanced.qml:145
+#: ../package/contents/ui/config/ConfigAdvanced.qml:158
 msgid "Day:"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:155
-#: ../package/contents/ui/config/ConfigAdvanced.qml:168
-#: package/contents/ui/config/ConfigAdvanced.qml:171
-#: package/contents/ui/config/ConfigAdvanced.qml:184
+#: ../package/contents/ui/config/ConfigAdvanced.qml:171
+#: ../package/contents/ui/config/ConfigAdvanced.qml:184
 msgid "Night:"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:186
-#: package/contents/ui/config/ConfigAdvanced.qml:202
+#: ../package/contents/ui/config/ConfigAdvanced.qml:202
 msgid "Gamma"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:191
-#: package/contents/ui/config/ConfigAdvanced.qml:207
+#: ../package/contents/ui/config/ConfigAdvanced.qml:207
 msgid "RGB:"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:226
-#: package/contents/ui/config/ConfigAdvanced.qml:242
+#: ../package/contents/ui/config/ConfigAdvanced.qml:242
 msgid "Mode"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:265
-#: package/contents/ui/config/ConfigAdvanced.qml:281
+#: ../package/contents/ui/config/ConfigAdvanced.qml:281
 msgid "Screen"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:271
-#: package/contents/ui/config/ConfigAdvanced.qml:287
+#: ../package/contents/ui/config/ConfigAdvanced.qml:287
 msgid "Card"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:285
-#: package/contents/ui/config/ConfigAdvanced.qml:301
+#: ../package/contents/ui/config/ConfigAdvanced.qml:301
 msgid "CRTC"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:293
-#: package/contents/ui/config/ConfigAdvanced.qml:309
+#: ../package/contents/ui/config/ConfigAdvanced.qml:309
 msgid "Preserve screen colour"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:301
-#: package/contents/ui/config/ConfigAdvanced.qml:317
+#: ../package/contents/ui/config/ConfigAdvanced.qml:317
 msgid "Insert custom mode options"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigAdvanced.qml:341
-#: package/contents/ui/config/ConfigAdvanced.qml:357
+#: ../package/contents/ui/config/ConfigAdvanced.qml:357
 msgid "Redshift version"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigGeneral.qml:13
-#: package/contents/ui/config/ConfigGeneral.qml:32
+#: ../package/contents/ui/config/ConfigGeneral.qml:32
 msgid "Plasmoid version"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigGeneral.qml:23
-#: package/contents/ui/config/ConfigGeneral.qml:42
+#: ../package/contents/ui/config/ConfigGeneral.qml:42
 msgid "Autostart"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigGeneral.qml:29
-#: package/contents/ui/config/ConfigGeneral.qml:48
+#: ../package/contents/ui/config/ConfigGeneral.qml:48
 msgid "Smooth transitions"
 msgstr ""
 
-#: ../package/contents/ui/config/ConfigGeneral.qml:40
-#: package/contents/ui/config/ConfigGeneral.qml:59
+#: ../package/contents/ui/config/ConfigGeneral.qml:59
 msgid "Manual temperature step:"
 msgstr ""
 
-#: ../package/contents/ui/main.qml:190 package/contents/ui/main.qml:201
-msgid "Turned on"
-msgstr ""
-
-#: ../package/contents/ui/main.qml:190 package/contents/ui/main.qml:204
-msgid "Manual temperature"
-msgstr ""
-
-#: ../package/contents/ui/main.qml:190 package/contents/ui/main.qml:206
-msgid "Turned off"
-msgstr ""
-
-#: ../package/contents/ui/main.qml:192
-msgid "Use middle click and wheel to manage screen temperature"
-msgstr ""
-
-#: ../package/contents/ui/main.qml:213 package/contents/ui/main.qml:240
-msgid "Redshift Control"
-msgstr ""
-
-#: package/contents/ui/main.qml:211
-msgid ""
-"Use left / middle click and wheel to manage screen temperature and brightness"
-msgstr ""
-
-#: package/contents/ui/main.qml:214
-msgid "Mouse wheel controls software brightness"
-msgstr ""
-
-#: package/contents/ui/main.qml:216
-msgid "Mouse wheel controls screen temperature"
-msgstr ""
-
-#: package/contents/ui/config/ConfigGeneral.qml:71
+#: ../package/contents/ui/config/ConfigGeneral.qml:71
 msgid "Manual brightness step:"
 msgstr ""
 
-#: package/contents/ui/config/ConfigGeneral.qml:90
+#: ../package/contents/ui/config/ConfigGeneral.qml:90
 msgid "Use default icons"
 msgstr ""
 
-#: package/contents/ui/config/ConfigGeneral.qml:95
+#: ../package/contents/ui/config/ConfigGeneral.qml:95
 msgid "Active:"
 msgstr ""
 
-#: package/contents/ui/config/ConfigGeneral.qml:107
+#: ../package/contents/ui/config/ConfigGeneral.qml:107
 msgid "Inactive:"
 msgstr ""
 
-#: package/contents/ui/config/IconPicker.qml:84
+#: ../package/contents/ui/config/IconPicker.qml:84
 msgctxt "@item:inmenu Open icon chooser dialog"
 msgid "Choose..."
 msgstr ""
 
-#: package/contents/ui/config/IconPicker.qml:89
+#: ../package/contents/ui/config/IconPicker.qml:89
 msgctxt "@item:inmenu Reset icon to default"
 msgid "Clear Icon"
+msgstr ""
+
+#: ../package/contents/ui/main.qml:201
+msgid "Turned on"
+msgstr ""
+
+#: ../package/contents/ui/main.qml:204
+msgid "Manual temperature"
+msgstr ""
+
+#: ../package/contents/ui/main.qml:206
+msgid "Turned off"
+msgstr ""
+
+#: ../package/contents/ui/main.qml:211
+msgid ""
+"Use left / middle click and wheel to manage screen temperature and brightness"
+msgstr ""
+
+#: ../package/contents/ui/main.qml:214
+msgid "Mouse wheel controls software brightness"
+msgstr ""
+
+#: ../package/contents/ui/main.qml:216
+msgid "Mouse wheel controls screen temperature"
+msgstr ""
+
+#: ../package/contents/ui/main.qml:240
+msgid "Redshift Control"
 msgstr ""
