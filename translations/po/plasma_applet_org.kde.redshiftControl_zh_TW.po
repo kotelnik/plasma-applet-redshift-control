@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Jeff Huang <s8321414@chakraos.org>, 2016.
+# Jeff Huang <s8321414@chakraos.org>, 2016, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: https://github.com/kotelnik/plasma-applet-redshift-"
-"control/issues\n"
+"Report-Msgid-Bugs-To: https://github.com/kotelnik/plasma-applet-redshift-contr"
+"ol/issues\n"
 "POT-Creation-Date: 2017-12-27 13:28+0100\n"
-"PO-Revision-Date: 2016-03-27 10:37+0800\n"
+"PO-Revision-Date: 2017-12-28 08:30+0800\n"
 "Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Chinese <chinese-l10n@googlegroups.com>\n"
 "Language: zh_TW\n"
@@ -123,29 +123,29 @@ msgstr "手動色溫步驟："
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:71
 msgid "Manual brightness step:"
-msgstr "手動色溫步驟："
+msgstr "手動亮度步驟："
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:90
 msgid "Use default icons"
-msgstr ""
+msgstr "使用預設圖示"
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:95
 msgid "Active:"
-msgstr ""
+msgstr "作用中："
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:107
 msgid "Inactive:"
-msgstr ""
+msgstr "非作用中："
 
 #: ../package/contents/ui/config/IconPicker.qml:84
 msgctxt "@item:inmenu Open icon chooser dialog"
 msgid "Choose..."
-msgstr ""
+msgstr "選擇……"
 
 #: ../package/contents/ui/config/IconPicker.qml:89
 msgctxt "@item:inmenu Reset icon to default"
 msgid "Clear Icon"
-msgstr ""
+msgstr "清除圖示"
 
 #: ../package/contents/ui/main.qml:201
 msgid "Turned on"
@@ -162,16 +162,17 @@ msgstr "關閉"
 #: ../package/contents/ui/main.qml:211
 msgid ""
 "Use left / middle click and wheel to manage screen temperature and brightness"
-msgstr ""
+msgstr "使用左鍵／中鍵點選與滾輪來管理螢幕色溫與亮度"
 
 #: ../package/contents/ui/main.qml:214
 msgid "Mouse wheel controls software brightness"
-msgstr ""
+msgstr "滑鼠滾輪控制軟體亮度"
 
 #: ../package/contents/ui/main.qml:216
 msgid "Mouse wheel controls screen temperature"
-msgstr ""
+msgstr "滑鼠滾輪控制螢幕色溫"
 
 #: ../package/contents/ui/main.qml:240
 msgid "Redshift Control"
 msgstr "Redshift 控制"
+
