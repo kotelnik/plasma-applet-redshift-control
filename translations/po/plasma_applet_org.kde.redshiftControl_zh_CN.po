@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://github.com/kotelnik/plasma-applet-redshift-"
 "control/issues\n"
 "POT-Creation-Date: 2017-12-27 13:28+0100\n"
-"PO-Revision-Date: 2016-03-28 12:53+0800\n"
+"PO-Revision-Date: 2017-12-30 22:03+0800\n"
 "Last-Translator: 吴相东 <wuxiangdong156@gmail.com>\n"
 "Language-Team: 吴相东 <wuxiangdong156@gmail.com>\n"
 "Language: zh_CN\n"
@@ -86,11 +86,11 @@ msgstr "屏幕"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:287
 msgid "Card"
-msgstr ""
+msgstr "卡"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:301
 msgid "CRTC"
-msgstr ""
+msgstr "CRTC"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:309
 msgid "Preserve screen colour"
@@ -118,33 +118,33 @@ msgstr "平滑转换"
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:59
 msgid "Manual temperature step:"
-msgstr "手动色温分度:"
+msgstr "手动色温步长："
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:71
 msgid "Manual brightness step:"
-msgstr "手动色温分度:"
+msgstr "手动色温步长："
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:90
 msgid "Use default icons"
-msgstr ""
+msgstr "使用默认图标"
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:95
 msgid "Active:"
-msgstr ""
+msgstr "激活"
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:107
 msgid "Inactive:"
-msgstr ""
+msgstr "闲置"
 
 #: ../package/contents/ui/config/IconPicker.qml:84
 msgctxt "@item:inmenu Open icon chooser dialog"
 msgid "Choose..."
-msgstr ""
+msgstr "选择……"
 
 #: ../package/contents/ui/config/IconPicker.qml:89
 msgctxt "@item:inmenu Reset icon to default"
 msgid "Clear Icon"
-msgstr ""
+msgstr "清除图标"
 
 #: ../package/contents/ui/main.qml:201
 msgid "Turned on"
@@ -161,15 +161,15 @@ msgstr "关闭"
 #: ../package/contents/ui/main.qml:211
 msgid ""
 "Use left / middle click and wheel to manage screen temperature and brightness"
-msgstr ""
+msgstr "使用左键／中键点击与滚动来管理屏幕色温与亮度"
 
 #: ../package/contents/ui/main.qml:214
 msgid "Mouse wheel controls software brightness"
-msgstr ""
+msgstr "滚动鼠标控制软件亮度"
 
 #: ../package/contents/ui/main.qml:216
 msgid "Mouse wheel controls screen temperature"
-msgstr ""
+msgstr "滚动鼠标控制屏幕色温"
 
 #: ../package/contents/ui/main.qml:240
 msgid "Redshift Control"
