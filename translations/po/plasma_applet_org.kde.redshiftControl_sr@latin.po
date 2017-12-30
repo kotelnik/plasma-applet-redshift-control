@@ -1,128 +1,132 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Translation of plasma_applet_org.kde.redshiftControl.po to Serbian Latin
+# This file is distributed under the same license as the Redshift Control plasmoid package.
+# Mladen Pejaković <pejakm@autistici.org>, 2016.
 #
-# 吴相东 <wuxiangdong156@gmail.com>, 2016.
-# This file is a translation from the zh_TW translation of Jeff Huang
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/kotelnik/plasma-applet-redshift-"
 "control/issues\n"
 "POT-Creation-Date: 2017-12-27 13:28+0100\n"
-"PO-Revision-Date: 2016-03-28 12:53+0800\n"
-"Last-Translator: 吴相东 <wuxiangdong156@gmail.com>\n"
-"Language-Team: 吴相东 <wuxiangdong156@gmail.com>\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2016-03-27 01:37+0100\n"
+"Last-Translator: Mladen Pejaković <pejakm@autistici.org>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: \n"
+"X-Text-Markup: xmlents\n"
+"X-Environment: kde\n"
 
 #: ../package/contents/config/config.qml:22
 msgid "General"
-msgstr "常规"
+msgstr "Opšte"
 
 #: ../package/contents/config/config.qml:27
 msgid "Advanced"
-msgstr "进阶"
+msgstr "Napredno"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:74
 msgid "Location"
-msgstr "位置"
+msgstr "Lokacija"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:80
 msgid "Automatic (geoclue)"
-msgstr "自动 (geoclue)"
+msgstr "Automatski (geoclue)"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:84
 msgid "Latitude:"
-msgstr "维度："
+msgstr "Dužina:"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:100
 msgid "Locate"
-msgstr "定位"
+msgstr "Lociraj"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:101
 msgid "This will use Mozilla Location Service exposed natively in KDE"
-msgstr "这将会使用在 KDE 中原生使用的 Mozilla Location Service"
+msgstr "Ovo će da koristi Mozilinu uslugu lokacije ugrađenu u KDE"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:112
 msgid "Longitude:"
-msgstr "经度："
+msgstr "Širina:"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:134
 msgid "Temperature"
-msgstr "色温"
+msgstr "Temperatura"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:139
 #: ../package/contents/ui/main.qml:204
 msgid "Brightness"
-msgstr "亮度"
+msgstr "Osvetljenje"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:145
 #: ../package/contents/ui/config/ConfigAdvanced.qml:158
 msgid "Day:"
-msgstr "白天："
+msgstr "Dan:"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:171
 #: ../package/contents/ui/config/ConfigAdvanced.qml:184
 msgid "Night:"
-msgstr "夜晚："
+msgstr "Noć:"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:202
 msgid "Gamma"
-msgstr "Gamma"
+msgstr "Gama"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:207
 msgid "RGB:"
-msgstr "RGB："
+msgstr "RGB:"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:242
 msgid "Mode"
-msgstr "模式"
+msgstr "Režim"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:281
 msgid "Screen"
-msgstr "屏幕"
+msgstr "Ekran"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:287
 msgid "Card"
-msgstr ""
+msgstr "Karta"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:301
 msgid "CRTC"
-msgstr ""
+msgstr "CRTC"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:309
 msgid "Preserve screen colour"
-msgstr "保留屏幕色彩"
+msgstr "Očuvaj boju ekrana"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:317
 msgid "Insert custom mode options"
-msgstr "插入自定义模式选项"
+msgstr "Umetnite opcije prilagođenog režima"
 
 #: ../package/contents/ui/config/ConfigAdvanced.qml:357
 msgid "Redshift version"
-msgstr "Redshift 版本"
+msgstr "Izdanje crvenog pomaka"
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:32
 msgid "Plasmoid version"
-msgstr "Plasmoid 版本"
+msgstr "Izdanje plazmoida"
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:42
 msgid "Autostart"
-msgstr "自动启动"
+msgstr "Autopokretanje"
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:48
 msgid "Smooth transitions"
-msgstr "平滑转换"
+msgstr "Glatki prelazi"
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:59
 msgid "Manual temperature step:"
-msgstr "手动色温分度:"
+msgstr "Ručni korak temperature:"
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:71
 msgid "Manual brightness step:"
-msgstr "手动色温分度:"
+msgstr "Ručni korak temperature:"
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:90
 msgid "Use default icons"
@@ -148,15 +152,15 @@ msgstr ""
 
 #: ../package/contents/ui/main.qml:201
 msgid "Turned on"
-msgstr "开启"
+msgstr "Uključena"
 
 #: ../package/contents/ui/main.qml:204
 msgid "Manual temperature"
-msgstr "手动色温"
+msgstr "Ručna temperatura"
 
 #: ../package/contents/ui/main.qml:206
 msgid "Turned off"
-msgstr "关闭"
+msgstr "Isključena"
 
 #: ../package/contents/ui/main.qml:211
 msgid ""
@@ -173,4 +177,4 @@ msgstr ""
 
 #: ../package/contents/ui/main.qml:240
 msgid "Redshift Control"
-msgstr "Redshift 控制"
+msgstr "Kontrola crvenog pomaka"

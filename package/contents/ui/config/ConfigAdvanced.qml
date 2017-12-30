@@ -1,3 +1,19 @@
+/*
+ * Copyright 2015  Martin Kotelnik <clearmartin@seznam.cz>
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of
+ * the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http: //www.gnu.org/licenses/>.
+ */
 import QtQuick 2.2
 import QtQuick.Controls 1.3
 import QtQuick.Layouts 1.1
@@ -5,7 +21,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 
 Item {
     id: advancedConfig
-    
+
     property alias cfg_geoclueLocationEnabled: geoclueLocationEnabled.checked
     property alias cfg_latitude: latitude.value
     property alias cfg_longitude: longitude.value
@@ -22,10 +38,10 @@ Item {
     property alias cfg_renderModeCrtc: renderModeCrtc.text
     property alias cfg_preserveScreenColour: preserveScreenColour.checked
     property string cfg_renderModeString
-    
+
     property string versionString: 'N/A'
     property string modeString: ''
-    
+
     onCfg_renderModeChanged: {
         print('restore: ' + cfg_renderMode)
         var comboIndex = modeCombo.find(cfg_renderMode)
@@ -34,26 +50,26 @@ Item {
             modeCombo.currentIndex = comboIndex
         }
     }
-    
+
     PlasmaCore.DataSource {
         id: geolocationDS
         engine: 'geolocation'
-        
+
         property string locationSource: 'location'
-        
+
         connectedSources: []
-        
+
         onNewData: {
             print('geolocation: ' + data.latitude)
             latitude.value = data.latitude
             longitude.value = data.longitude
         }
     }
-    
+
     GridLayout {
         Layout.fillWidth: true
         columns: 4
-        
+
         Label {
             text: i18n("Location")
             Layout.columnSpan: parent.columns
@@ -75,11 +91,11 @@ Item {
             stepSize: 1
             minimumValue: -90
             maximumValue: 90
-            
+
             Layout.preferredWidth: 150
             enabled: !geoclueLocationEnabled.checked
         }
-        
+
         Button {
             text: i18n('Locate')
             tooltip: i18n('This will use Mozilla Location Service exposed natively in KDE')
@@ -91,7 +107,7 @@ Item {
             Layout.columnSpan: 2
             enabled: !geoclueLocationEnabled.checked
         }
-        
+
         Label {
             text: i18n('Longitude:')
             Layout.alignment: Qt.AlignRight
@@ -103,17 +119,17 @@ Item {
             stepSize: 1
             minimumValue: -180
             maximumValue: 180
-            
+
             Layout.preferredWidth: 150
             enabled: !geoclueLocationEnabled.checked
         }
-        
+
         Item {
             width: 2
             height: 10
             Layout.columnSpan: parent.columns
         }
-        
+
         Label {
             text: i18n('Temperature')
             Layout.columnSpan: 2
@@ -124,7 +140,7 @@ Item {
             Layout.columnSpan: 2
             font.bold: true
         }
-        
+
         Label {
             text: i18n('Day:')
             Layout.alignment: Qt.AlignRight
@@ -137,7 +153,7 @@ Item {
             maximumValue: 25000
             Layout.columnSpan: 1
         }
-        
+
         Label {
             text: i18n('Day:')
             Layout.alignment: Qt.AlignRight
@@ -150,7 +166,7 @@ Item {
             maximumValue: 1
             Layout.columnSpan: 1
         }
-        
+
         Label {
             text: i18n('Night:')
             Layout.alignment: Qt.AlignRight
@@ -163,7 +179,7 @@ Item {
             maximumValue: 25000
             Layout.columnSpan: 1
         }
-        
+
         Label {
             text: i18n('Night:')
             Layout.alignment: Qt.AlignRight
@@ -176,7 +192,7 @@ Item {
             maximumValue: 1
             Layout.columnSpan: 1
         }
-        
+
         Item {
             width: 2
             height: 10
@@ -193,7 +209,7 @@ Item {
         }
         RowLayout {
             Layout.columnSpan: 3
-            
+
             SpinBox { 
                 id: 'gammaR'
                 decimals: 2
@@ -216,7 +232,7 @@ Item {
                 stepSize: 0.1
             }
         }
-        
+
         Item {
             width: 2
             height: 10
@@ -258,7 +274,7 @@ Item {
                 modeChanged()
             }
         }
-        
+
         // col 2
         TextField {
             id: renderModeScreen
@@ -277,7 +293,7 @@ Item {
             opacity: 0
             visible: !renderModeScreen.visible && !renderModeCard.visible
         }
-        
+
         // col 2
         TextField {
             id: renderModeCrtc
@@ -286,7 +302,7 @@ Item {
             opacity: isMode(['drm', 'randr']) ? 1 : 0
             onTextChanged: modeChanged()
         }
-        
+
         // col 4
         CheckBox {
             id: preserveScreenColour
@@ -295,7 +311,7 @@ Item {
             enabled: parseFloat(versionString) >= 1.11
             onCheckedChanged: modeChanged()
         }
-        
+
         TextField {
             id: modeString
             placeholderText: i18n('Insert custom mode options')
@@ -307,7 +323,7 @@ Item {
         }
 
     }
-    
+
     function modeChanged() {
         switch (cfg_renderMode) {
         case 'drm':
@@ -324,14 +340,14 @@ Item {
         }
         cfg_renderModeString = modeString.text
     }
-    
+
     function isMode(modes) {
         var currentMode = modeCombo.model.get(modeCombo.currentIndex).val
         return modes.some(function (iterMode) {
             return currentMode === iterMode
         })
     }
-    
+
     Label {
         id: versionStringLabel
         text: versionString
@@ -342,13 +358,13 @@ Item {
         font.bold: true
         anchors.right: versionStringLabel.left
     }
-    
+
     PlasmaCore.DataSource {
         id: getOptionsDS
         engine: 'executable'
-        
+
         connectedSources: ['redshift -V']
-        
+
         onNewData: {
             connectedSources.length = 0
             if (data['exit code'] > 0) {
@@ -358,5 +374,5 @@ Item {
             versionString = data.stdout.split(' ')[1]
         }
     }
-    
+
 }
