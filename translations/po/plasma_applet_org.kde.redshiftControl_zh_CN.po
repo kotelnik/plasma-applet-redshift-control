@@ -122,7 +122,7 @@ msgstr "手动色温步长："
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:71
 msgid "Manual brightness step:"
-msgstr "手动色温步长："
+msgstr "手动亮度步长："
 
 #: ../package/contents/ui/config/ConfigGeneral.qml:90
 msgid "Use default icons"
